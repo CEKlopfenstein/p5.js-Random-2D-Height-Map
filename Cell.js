@@ -10,9 +10,6 @@ function Cell(xCord, yCord, xDem, yDem){
   this.neighbors = [];
 
   //Initialization
-  if(random()<0.01){
-    this.z = 255;
-  }
 
   //Functions
   this.show = function(col) {
@@ -46,8 +43,8 @@ function Cell(xCord, yCord, xDem, yDem){
 
   this.flowOut = function(){
     for(var c = 0; c < this.neighbors.length; c++){
-      if(this.neighbors[c].z < this.z && this.z - 10 > 0){
-        this.neighbors[c].z = this.z - 10;
+      if(this.neighbors[c].z < this.z && this.z - fallRate > 0){
+        this.neighbors[c].z = this.z - fallRate;
         this.neighbors[c].flowOut();
       }
     }
