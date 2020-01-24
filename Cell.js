@@ -23,21 +23,29 @@ function Cell(xCord, yCord, xDem, yDem){
     //Left
     if(this.x != 0){
       this.neighbors.push(world[this.x-1][this.y]);
+    }else{
+      this.neighbors.push(world[world.length-1][this.y]);
     }
 
     //Top
     if(this.y != 0){
       this.neighbors.push(world[this.x][this.y-1]);
+    }else{
+      this.neighbors.push(world[this.x][world[0].length-1]);
     }
 
     //Bottom
     if(this.y != world[0].length-1){
       this.neighbors.push(world[this.x][this.y+1]);
+    }else{
+      this.neighbors.push(world[this.x][0]);
     }
 
     //Right
     if(this.x != world.length-1){
       this.neighbors.push(world[this.x+1][this.y]);
+    }else{
+      this.neighbors.push(world[0][this.y]);
     }
   }
 
