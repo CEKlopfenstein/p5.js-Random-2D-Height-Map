@@ -7,6 +7,7 @@ function mapSet(){
     }
   }
 
+  console.log(mapArray);
   //addNeighbors
   for(var x = 0; x < mapSize[0]; x++){
     for(var y = 0; y < mapSize[1]; y++){
