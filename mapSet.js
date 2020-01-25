@@ -19,7 +19,7 @@ function mapSet(){
     mapArray[floor(random()*mapSize[0])][floor(random()*mapSize[1])].z = 255;
   }
 }
-function smooth() {
+function smoothMap() {
   for(var t = 0; t < smoothOut; t++){
     for(var x = 0; x < 100; x++){
       for(var y = 0; y < 100; y++){
