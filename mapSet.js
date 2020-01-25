@@ -18,5 +18,5 @@ function mapSet(){
   for(var c = 0; c < pointCount; c++){
     mapArray[floor(random()*mapSize[0])][floor(random()*mapSize[1])].z = 255;
   }
-  
+
 }
