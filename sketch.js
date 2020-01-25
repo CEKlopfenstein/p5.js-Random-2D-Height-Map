@@ -3,11 +3,14 @@ var canvasSize = [640,480];
 var mapSize = [100,100];
 var pointCount = 20;
 var fallRate = 10;
+var smoothOut = 0;
 
 //Global variables
 var mapArray = [];
 var cellDem = [canvasSize[0]/mapSize[0],canvasSize[1]/mapSize[1]];
 var genComplete = false;
+var genStage1 = false;
+var genStage2 = false;
 var points = 1;
 var xTick = 0;
 var yTick = 0;
@@ -39,7 +42,7 @@ function draw() {
       }
     }
     noLoop();
-  }else{
+  }else if(!genStage1){
     fill(255);
     stroke(0);
     strokeWeight(1);
@@ -74,8 +77,11 @@ function draw() {
       }
     }else{
       xTick = 0;
-      genComplete = true;
+      genStage1 = true;
     }
+  }else if(!genStage2){
+    smooth();
+    genStage2 = true;
+    genComplete = true;
   }
-
 }
