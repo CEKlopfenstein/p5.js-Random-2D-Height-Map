@@ -3,7 +3,7 @@ var canvasSize = [640,480];
 var mapSize = [100,100];
 var pointCount = 20;
 var fallRate = 10;
-var smoothOut = 0;
+var smoothOut = 25;
 
 //Global variables
 var mapArray = [];
@@ -26,21 +26,7 @@ function setup() {
 
 function draw() {
   if(genComplete){
-    for(var x = 0; x < mapSize[0]; x++){
-      for(var y = 0; y < mapSize[1]; y++){
-        if(mapArray[x][y].z <= 85){
-          mapArray[x][y].show("#0056b8");
-        }else if(mapArray[x][y].z <= 127){
-          mapArray[x][y].show("#287ee0");
-        }else if(mapArray[x][y].z <= 137){
-          mapArray[x][y].show("#fad355");
-        }else if(mapArray[x][y].z <= 204){
-          mapArray[x][y].show("green");
-        }else{
-          mapArray[x][y].show("grey");
-        }
-      }
-    }
+    color1();
     noLoop();
   }else if(!genStage1){
     fill(255);
