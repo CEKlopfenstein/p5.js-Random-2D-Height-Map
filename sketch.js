@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
-var mapSize = [100,100];
-var pointCount = 20;
+var mapSize = [1000,1000];
+var pointCount = 100;
 var fallRate = 10;
 var smoothOut = 25;
 
@@ -29,6 +29,7 @@ function draw() {
     color1();
     noLoop();
   }else if(!genStage1){
+    //Empty Bar
     fill(255);
     stroke(0);
     strokeWeight(1);
@@ -36,6 +37,7 @@ function draw() {
     rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100,10);
     noFill();
     rect(canvasSize[0]/2-50,canvasSize[1]/2+10,100,10);
+    //Fill bar
     noStroke();
     fill(color("red"));
     rect(canvasSize[0]/2-50,canvasSize[1]/2-20,100*(yTick/mapSize[1]),10);
@@ -44,12 +46,14 @@ function draw() {
       if(yTick < mapSize[1]){
         if(mapArray[xTick][yTick].z == 255){
           mapArray[xTick][yTick].flowOut();
+          //Fill Bottom bar
           fill(color("green"));
-          noStroke();
           rect(canvasSize[0]/2-50,canvasSize[1]/2+10,100*(points/pointCount),10);
+          //Clean Text Area
           fill(255);
           stroke(255);
           rect(canvasSize[0]/2+55,canvasSize[1]/2+10,100,10);
+          //Add Text
           stroke(0);
           fill(0);
           textSize(12);
