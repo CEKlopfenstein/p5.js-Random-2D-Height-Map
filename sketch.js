@@ -14,6 +14,7 @@ var genStage2 = false;
 var points = 1;
 var xTick = 0;
 var yTick = 0;
+var highPointCords = [];
 
 function setup() {
   //Canvas set up
@@ -30,45 +31,26 @@ function draw() {
     noLoop();
   }else if(!genStage1){
     //Empty Bar
-    fill(255);
+    noFill();
     stroke(0);
     strokeWeight(1);
-    rect(canvasSize[0]/2-50,canvasSize[1]/2-20,100,10);
     rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100,10);
-    noFill();
-    rect(canvasSize[0]/2-50,canvasSize[1]/2+10,100,10);
     //Fill bar
     noStroke();
-    fill(color("red"));
-    rect(canvasSize[0]/2-50,canvasSize[1]/2-20,100*(yTick/mapSize[1]),10);
-    rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(xTick/mapSize[0]),10);
-    if(xTick < mapSize[0]){
-      if(yTick < mapSize[1]){
-        if(mapArray[xTick][yTick].z == 255){
-          mapArray[xTick][yTick].flowOut();
-          //Fill Bottom bar
-          fill(color("green"));
-          rect(canvasSize[0]/2-50,canvasSize[1]/2+10,100*(points/pointCount),10);
-          //Clean Text Area
-          fill(255);
-          stroke(255);
-          rect(canvasSize[0]/2+55,canvasSize[1]/2+10,100,10);
-          //Add Text
-          stroke(0);
-          fill(0);
-          textSize(12);
-          text(floor((points/pointCount)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+20);
-          points++;
-        }
-        yTick++;
-      }else{
-        yTick = 0;
-        xTick++;
-      }
-    }else{
-      xTick = 0;
-      genStage1 = true;
-    }
+    mapArray[highPointCords[points-1][0]][highPointCords[points-1][1]].flowOut();
+    //Fill Bottom bar
+    fill(color("green"));
+    rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(points/pointCount),10);
+    //Clean Text Area
+    fill(255);
+    stroke(255);
+    rect(canvasSize[0]/2+55,canvasSize[1]/2-5,100,10);
+    //Add Text
+    stroke(0);
+    fill(0);
+    textSize(12);
+    text(floor((points/pointCount)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
+    points++;
   }else if(!genStage2){
     smoothMap();
     genStage2 = true;

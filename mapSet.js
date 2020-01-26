@@ -17,7 +17,8 @@ function mapSet(){
 
   //Make Random High Points
   for(var c = 0; c < pointCount; c++){
-    mapArray[floor(random()*mapSize[0])][floor(random()*mapSize[1])].z = 255;
+    highPointCords.push([floor(random()*mapSize[0]),floor(random()*mapSize[1])]);
+    mapArray[highPointCords[c][0]][highPointCords[c][1]].z = 255;
   }
 }
 
