@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
 var mapSize = [100,100];
-var pointCount = 2;
+var pointCount = 20;
 var fallRate = 10;
 var smoothOut = 25;
 var logFile = "Output.txt";
@@ -32,9 +32,10 @@ function setup() {
 function draw() {
   if(genComplete){
     totalTime = millis() - startTime;
-    console.log(totalTime);
+    var finalData = logIt();
+    console.log(finalData);
     let logOutput = createWriter(logFile);
-    logOutput.write(totalTime+"\n");
+    logOutput.write(finalData);
     logOutput.close();
     color1();
     noLoop();
