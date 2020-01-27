@@ -4,6 +4,7 @@ var mapSize = [100,100];
 var pointCount = 2;
 var fallRate = 10;
 var smoothOut = 25;
+var logFile = "Output.txt";
 
 //Global variables
 var mapArray = [];
@@ -32,6 +33,9 @@ function draw() {
   if(genComplete){
     totalTime = millis() - startTime;
     console.log(totalTime);
+    let logOutput = createWriter(logFile);
+    logOutput.write(totalTime+"\n");
+    logOutput.close();
     color1();
     noLoop();
   }else if(!firstDraw){
