@@ -1,5 +1,8 @@
 //Basic mapFilling
 function mapSet(){
+  //Start Timer
+  startTime = millis();
+
   //Fill mapArray
   for(var x = 0; x < mapSize[0]; x++){
     mapArray.push([]);

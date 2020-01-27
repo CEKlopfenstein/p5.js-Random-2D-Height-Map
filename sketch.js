@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
-var mapSize = [1000,1000];
-var pointCount = 2000;
+var mapSize = [100,100];
+var pointCount = 2;
 var fallRate = 10;
 var smoothOut = 25;
 
@@ -11,10 +11,13 @@ var cellDem = [canvasSize[0]/mapSize[0],canvasSize[1]/mapSize[1]];
 var genComplete = false;
 var genStage1 = false;
 var genStage2 = false;
+var firstDraw = false;
 var points = 1;
 var xTick = 0;
 var yTick = 0;
 var highPointCords = [];
+var startTime;
+var totalTime;
 
 function setup() {
   //Canvas set up
@@ -27,8 +30,19 @@ function setup() {
 
 function draw() {
   if(genComplete){
+    totalTime = millis() - startTime;
+    console.log(totalTime);
     color1();
     noLoop();
+  }else if(!firstDraw){
+    noFill();
+    stroke(0);
+    strokeWeight(1);
+    rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100,10);
+    textSize(24);
+    fill(0);
+    text("Terrain Generation Starting",canvasSize[0]/2-140,canvasSize[1]/2-10)
+    firstDraw = true;
   }else if(!genStage1){
     //Empty Bar
     noFill();
