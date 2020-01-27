@@ -25,8 +25,8 @@ function mapSet(){
 //Smooth out the map by making the hight of each cell the average of those arround it
 function smoothMap() {
   for(var t = 0; t < smoothOut; t++){
-    for(var x = 0; x < 100; x++){
-      for(var y = 0; y < 100; y++){
+    for(var x = 0; x < mapSize[0]; x++){
+      for(var y = 0; y < mapSize[1]; y++){
         sum = 0;
         for(var c = 0; c < mapArray[x][y].neighbors.length; c++){
           sum += mapArray[x][y].neighbors[c].z;

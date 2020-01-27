@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
 var mapSize = [1000,1000];
-var pointCount = 100;
+var pointCount = 2000;
 var fallRate = 10;
 var smoothOut = 25;
 
@@ -51,6 +51,9 @@ function draw() {
     textSize(12);
     text(floor((points/pointCount)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
     points++;
+    if(points == pointCount){
+      genStage1 = true;
+    }
   }else if(!genStage2){
     smoothMap();
     genStage2 = true;
