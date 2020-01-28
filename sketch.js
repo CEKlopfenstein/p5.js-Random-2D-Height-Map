@@ -35,7 +35,7 @@ function draw() {
     var finalData = logIt();
     console.log(finalData);
     let logOutput = createWriter(logFile);
-    logOutput.write(finalData);
+    logOutput.write(finalData+"\n"+mapToText());
     logOutput.close();
     color1();
     noLoop();

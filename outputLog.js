@@ -57,3 +57,13 @@ function logIt() {
 
   return currentSettings;
 }
+function mapToText(){
+  var textMap = "";
+  for(var x = 0; x < mapSize[0]; x++){
+    for(var y = 0; y < mapSize[1]; y++){
+      textMap += floor(mapArray[x][y].z/25.5)+"";
+    }
+    textMap += "\n";
+  }
+  return textMap;
+}
