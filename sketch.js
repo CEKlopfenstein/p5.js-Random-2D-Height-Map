@@ -35,8 +35,9 @@ function setup() {
 }
 
 function draw() {
-  noLoop();
-  mapArray = loadFromFile(inputFile);
+  //This is to force a load
+  //mapArray = loadFromFile(inputFile);
+
   if(genComplete){
     totalTime = millis() - startTime;
     var finalData = logIt();
@@ -45,6 +46,7 @@ function draw() {
     logOutput.write(finalData+"\n"+mapToText());
     logOutput.close();
     graphic(mapArray);
+    saveToFile(mapArray);
     noLoop();
   }else if(!firstDraw){
     colorTest();

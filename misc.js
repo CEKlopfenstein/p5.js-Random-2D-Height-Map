@@ -32,7 +32,16 @@ function colorTest() {
 
 //To save maps to a file
 function saveToFile(theMap) {
+  var textOut = (theMap.length)+"\n"+(theMap[0].length)+"\n";
+  for(var x = 0; x < theMap.length; x++){
+    for(var y = 0; y < theMap[0].length; y++){
+      textOut += theMap[x][y].z+",";
+    }
+  }
 
+  let out = createWriter("map.txt");
+  out.write(textOut);
+  out.close();
 }
 
 //To load from a file
