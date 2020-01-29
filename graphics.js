@@ -26,7 +26,7 @@ function testGraphic(theMap) {
       if(x < floor(theMap.length/2)){
         generic(theMap[x][y]);
       }else{
-        testColor1(theMap[x][y]);
+        testColor1i1(theMap[x][y]);
       }
     }
   }
@@ -60,6 +60,6 @@ function testColor1(point) {
   */
 }
 
-function testColor2(point) {
-
+function testColor1i1(point) {
+  point.grid([10,point.z,255-point.z]);
 }

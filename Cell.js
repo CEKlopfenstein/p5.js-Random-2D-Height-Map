@@ -19,6 +19,13 @@ function Cell(xCord, yCord, xDem, yDem){
     rect(this.xTrue, this.yTrue, this.width, this.height);
   }
 
+  this.grid = function(col) {
+    fill(color(col));
+    stroke(0);
+    strokeWeight(0.5);
+    rect(this.xTrue, this.yTrue, this.width, this.height);
+  }
+
   this.addNeighbors = function(world){
     //Left
     if(this.x != 0){
