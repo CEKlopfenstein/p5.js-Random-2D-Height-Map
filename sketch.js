@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
 var mapSize = [100,100];
-var pointCount = 20;
+var pointCount = 2;
 var fallRate = 10;
 var smoothOut = 25;
 var logFile = "Output.txt";
@@ -30,8 +30,6 @@ function setup() {
 }
 
 function draw() {
-  //Temp noLoop
-  noLoop()
   if(genComplete){
     totalTime = millis() - startTime;
     var finalData = logIt();
@@ -39,7 +37,7 @@ function draw() {
     let logOutput = createWriter(logFile);
     logOutput.write(finalData+"\n"+mapToText());
     logOutput.close();
-    color1();
+    graphic(mapArray);
     noLoop();
   }else if(!firstDraw){
     colorTest();
