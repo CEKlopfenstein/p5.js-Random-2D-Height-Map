@@ -43,7 +43,7 @@ function draw() {
     var finalData = logIt();
     console.log(finalData);
     //trueLogger(finalData);
-    graphic(mapArray);
+    testGraphic(mapArray);
     //saveToFile(mapArray);
     noLoop();
   }else if(!firstDraw){
