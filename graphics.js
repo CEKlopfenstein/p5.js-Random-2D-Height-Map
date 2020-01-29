@@ -26,7 +26,7 @@ function testGraphic(theMap) {
       if(x < floor(theMap.length/2)){
         generic(theMap[x][y]);
       }else{
-        testColor1i1(theMap[x][y]);
+        testColor2(theMap[x][y]);
       }
     }
   }
@@ -60,6 +60,16 @@ function testColor1(point) {
   */
 }
 
+//Near clone of testColor1 just with lines
 function testColor1i1(point) {
   point.grid([10,point.z,255-point.z]);
+}
+
+function testColor2(point) {
+  if(point.z > 127){
+    for(var c = 0; c < 4; c++){
+      console.log(point.neighbors[c]);
+    }
+    point.show("black");
+  }
 }

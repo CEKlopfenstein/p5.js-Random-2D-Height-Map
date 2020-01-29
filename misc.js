@@ -69,6 +69,13 @@ function loadFromFile(textInput) {
     holder[(c%mapSize[0])][floor(c/mapSize[0])].z = data[c];
   }
 
+  //addNeighbors
+  for(var x = 0; x < mapSize[0]; x++){
+    for(var y = 0; y < mapSize[1]; y++){
+      holder[x][y].addNeighbors(holder);
+    }
+  }
+
   //Force draw
   genComplete = true;
 
