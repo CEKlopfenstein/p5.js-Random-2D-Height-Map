@@ -42,9 +42,7 @@ function draw() {
     totalTime = millis() - startTime;
     var finalData = logIt();
     console.log(finalData);
-    let logOutput = createWriter(logFile);
-    logOutput.write(finalData+"\n"+mapToText());
-    logOutput.close();
+    trueLogger(finalData);
     graphic(mapArray);
     //saveToFile(mapArray);
     noLoop();

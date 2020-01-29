@@ -57,6 +57,7 @@ function logIt() {
 
   return currentSettings;
 }
+
 function mapToText(){
   var textMap = "";
   for(var x = 0; x < mapSize[0]; x++){
@@ -66,4 +67,10 @@ function mapToText(){
     textMap += "\n";
   }
   return textMap;
+}
+
+function trueLogger(data) {
+  let logOutput = createWriter(logFile);
+  logOutput.write(data+"\n"+mapToText());
+  logOutput.close();
 }

@@ -2,7 +2,7 @@
 function graphic(theMap) {
   for(var x = 0; x < theMap.length; x++){
     for(var y = 0; y < theMap[0].length; y++){
-      greyScale(theMap[x][y]);
+      generic(theMap[x][y]);
     }
   }
 }
