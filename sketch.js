@@ -30,6 +30,8 @@ function setup() {
 }
 
 function draw() {
+  //Temp noLoop
+  noLoop()
   if(genComplete){
     totalTime = millis() - startTime;
     var finalData = logIt();
@@ -40,6 +42,7 @@ function draw() {
     color1();
     noLoop();
   }else if(!firstDraw){
+    colorTest();
     initDraw();
     firstDraw = true;
   }else if(!genStage1){
