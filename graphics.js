@@ -67,9 +67,11 @@ function testColor1i1(point) {
 
 function testColor2(point) {
   if(point.z > 127){
-    for(var c = 0; c < 4; c++){
-      console.log(point.neighbors[c]);
+    for(c in point.neighbors){
+      if(point.neighbors[c].z <= 127){
+        point.show("black");
+        break;
+      }
     }
-    point.show("black");
   }
 }
