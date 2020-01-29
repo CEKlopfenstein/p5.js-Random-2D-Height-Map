@@ -26,3 +26,24 @@ function generic(point) {
 function greyScale(point) {
   point.show(255-point.z);
 }
+
+//First thing to be drawn.
+function initDraw() {
+  noFill();
+  stroke(0);
+  strokeWeight(1);
+  rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100,10);
+  textSize(24);
+  fill(0);
+  text("Terrain Generation Starting",canvasSize[0]/2-140,canvasSize[1]/2-10);
+  textSize(12);
+  text("0% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
+}
+
+//The idea here is to make it a transition from blue to green
+function testColor1(point) {
+  point.show([10,point.z,255-point.z]);
+  /*
+  Conclusion While it works it does not have a good look.
+  */
+}

@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
 var mapSize = [100,100];
-var pointCount = 2;
+var pointCount = 5;
 var fallRate = 10;
 var smoothOut = 25;
 var logFile = "Output.txt";
@@ -19,6 +19,11 @@ var yTick = 0;
 var highPointCords = [];
 var startTime;
 var totalTime;
+var inputFile;
+
+function preload() {
+  inputFile = loadStrings("mapTest.txt");
+}
 
 function setup() {
   //Canvas set up
@@ -30,6 +35,8 @@ function setup() {
 }
 
 function draw() {
+  noLoop();
+  mapArray = loadFromFile(inputFile);
   if(genComplete){
     totalTime = millis() - startTime;
     var finalData = logIt();
