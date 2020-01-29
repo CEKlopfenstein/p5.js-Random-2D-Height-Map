@@ -64,11 +64,8 @@ function loadFromFile(textInput) {
   //Read details
   var data = textInput[2].split(",");
 
-  console.log(holder);
-
   //Write data to map
   for(var c = 0; c < mapSize[0]*mapSize[1]; c++){
-    console.log((c%mapSize[0])+","+floor(c/mapSize[0]));
     holder[(c%mapSize[0])][floor(c/mapSize[0])].z = data[c];
   }
 
