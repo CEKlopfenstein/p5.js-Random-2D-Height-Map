@@ -22,6 +22,9 @@ var totalTime;
 var inputFile;
 var highestPoint;
 var lowestPoint;
+var offSets = [mapSize[0]*100,mapSize[1]*100];
+var dataSent = false;
+var testTick = 0;
 
 function preload() {
   inputFile = loadStrings("mapTest.txt");
@@ -34,21 +37,25 @@ function setup() {
   //setMap
   mapSet();
 
+  //This is to force a load
+  mapArray = loadFromFile(inputFile);
 }
 
 function draw() {
-  //This is to force a load
-  mapArray = loadFromFile(inputFile);
+  console.log("Loop");
 
   if(genComplete){
-    totalTime = millis() - startTime;
-    var finalData = logIt();
-    highestPoint = highPointFind(mapArray);
-    lowestPoint = lowPointFind(mapArray);
-    console.log(finalData+"\n"+highestPoint+"\n"+lowestPoint);
-    //trueLogger(finalData);
-    graphic(mapArray);
-    //saveToFile(mapArray);
+    if(!dataSent){
+      totalTime = millis() - startTime;
+      var finalData = logIt();
+      highestPoint = highPointFind(mapArray);
+      lowestPoint = lowPointFind(mapArray);
+      console.log(finalData+"\n"+highestPoint+"\n"+lowestPoint);
+      //trueLogger(finalData);
+      //saveToFile(mapArray);
+      dataSent = true;
+    }
+    graphic(offSets[0],offSets[1]);
     noLoop();
   }else if(!firstDraw){
     colorTest();
@@ -88,15 +95,24 @@ function draw() {
 
 function keyPressed() {
   if(keyCode === LEFT_ARROW){
-
+    offSets[0] += -1;
+    clear();
+    loop();
   }else if (keyCode === RIGHT_ARROW) {
-
+    offSets[0] += 1;
+    clear();
+    loop();
   }else if (keyCode === UP_ARROW) {
-
+    offSets[1] += -1;
+    clear();
+    loop();
   }else if (keyCode === DOWN_ARROW) {
-
+    offSets[1] += 1;
+    clear();
+    loop();
   }
 
+console.log(offSets);
   //Prevent default browswer actions
   return false;
 }

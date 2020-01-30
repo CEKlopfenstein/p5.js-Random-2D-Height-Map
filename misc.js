@@ -52,6 +52,7 @@ function loadFromFile(textInput) {
   //Get mapSize data
   mapSize = [textInput[0],textInput[1]];
   cellDem = [canvasSize[0]/mapSize[0],canvasSize[1]/mapSize[1]];
+  offSets = [mapSize[0]*100,mapSize[1]*100];
 
   //Make grid
   for(var x = 0; x < mapSize[0]; x++){

@@ -12,12 +12,17 @@ function initDraw() {
 }
 
 //This is the function that colors the map
-function graphic(theMap) {
-  for(var x = 0; x < theMap.length; x++){
-    for(var y = 0; y < theMap[0].length; y++){
-      testColor2(theMap[x][y]);
+function graphic(xOffset,yOffset) {
+  console.log(mapArray[0][0]);
+  for(var x = 0; x < mapArray.length; x++){
+    for(var y = 0; y < mapArray[0].length; y++){
+      if(xOffset > 0 && yOffset > 0){
+        mapArray[x][y].offset(abs((x+xOffset)%mapArray.length),abs((y+yOffset)%mapArray[0].length));
+      }
+      testColor2(mapArray[x][y]);
     }
   }
+  console.log(mapArray[0][0]);
 }
 
 function testGraphic(theMap) {

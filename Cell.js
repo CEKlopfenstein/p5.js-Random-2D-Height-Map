@@ -65,4 +65,11 @@ function Cell(xCord, yCord, xDem, yDem){
     }
   }
 
+  this.offset = function(xCord,yCord) {
+    this.x = xCord;
+    this.y = yCord;
+    this.xTrue = xCord*xDem;
+    this.yTrue = yCord*yDem;
+  }
+
 }
