@@ -28,6 +28,9 @@ function graphic(xOffset,yOffset) {
 function testGraphic(theMap) {
   for(var x = 0; x < theMap.length; x++){
     for(var y = 0; y < theMap[0].length; y++){
+      if(xOffset > 0 && yOffset > 0){
+        mapArray[x][y].offset(abs((x+xOffset)%mapArray.length),abs((y+yOffset)%mapArray[0].length));
+      }
       if(x < floor(theMap.length/2)){
         generic(theMap[x][y]);
       }else{
