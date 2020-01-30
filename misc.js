@@ -66,7 +66,7 @@ function loadFromFile(textInput) {
 
   //Write data to map
   for(var c = 0; c < mapSize[0]*mapSize[1]; c++){
-    holder[(c%mapSize[0])][floor(c/mapSize[0])].z = data[c];
+    holder[(c%mapSize[0])][floor(c/mapSize[0])].z = parseInt(data[c]);
   }
 
   //addNeighbors
@@ -82,4 +82,42 @@ function loadFromFile(textInput) {
   //Return the loaded map
   return holder;
 
+}
+
+//Find the highestPoint on the map
+function highPointFind(theMap) {
+  var temp = [];
+  var temp2 = 0;
+  for(x in theMap){
+    for(y in theMap[0]){
+      temp.push(theMap[x][y].z);
+    }
+  }
+
+  for(c in temp){
+    if(temp[c] > temp2){
+      temp2 = temp[c];
+    }
+  }
+
+  return temp2;
+}
+
+//Find the lowestPoint on the map
+function lowPointFind(theMap) {
+  var temp = [];
+  var temp2 = 256;
+  for(x in theMap){
+    for(y in theMap[0]){
+      temp.push(theMap[x][y].z);
+    }
+  }
+
+  for(c in temp){
+    if(temp[c] < temp2){
+      temp2 = temp[c];
+    }
+  }
+
+  return temp2;
 }

@@ -20,6 +20,8 @@ var highPointCords = [];
 var startTime;
 var totalTime;
 var inputFile;
+var highestPoint;
+var lowestPoint;
 
 function preload() {
   inputFile = loadStrings("mapTest.txt");
@@ -41,7 +43,9 @@ function draw() {
   if(genComplete){
     totalTime = millis() - startTime;
     var finalData = logIt();
-    console.log(finalData);
+    highestPoint = highPointFind(mapArray);
+    lowestPoint = lowPointFind(mapArray);
+    console.log(finalData+"\n"+highestPoint+"\n"+lowestPoint);
     //trueLogger(finalData);
     testGraphic(mapArray);
     //saveToFile(mapArray);
