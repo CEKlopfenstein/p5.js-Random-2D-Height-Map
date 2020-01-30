@@ -47,7 +47,7 @@ function draw() {
     lowestPoint = lowPointFind(mapArray);
     console.log(finalData+"\n"+highestPoint+"\n"+lowestPoint);
     //trueLogger(finalData);
-    testGraphic(mapArray);
+    graphic(mapArray);
     //saveToFile(mapArray);
     noLoop();
   }else if(!firstDraw){

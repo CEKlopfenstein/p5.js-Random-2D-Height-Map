@@ -15,7 +15,7 @@ function initDraw() {
 function graphic(theMap) {
   for(var x = 0; x < theMap.length; x++){
     for(var y = 0; y < theMap[0].length; y++){
-      generic(theMap[x][y]);
+      testColor2(theMap[x][y]);
     }
   }
 }
@@ -23,10 +23,10 @@ function graphic(theMap) {
 function testGraphic(theMap) {
   for(var x = 0; x < theMap.length; x++){
     for(var y = 0; y < theMap[0].length; y++){
-      if(x > floor(theMap.length/2)){
+      if(x < floor(theMap.length/2)){
         generic(theMap[x][y]);
       }else{
-        testColor2(theMap[x][y]);
+        testColor2i2(theMap[x][y]);
       }
     }
   }
@@ -91,6 +91,40 @@ function testColor2(point) {
   }else if(point.z <= 85){
     point.show("#0056b8");
   }else if(point.z <= 127){
+    point.show("#287ee0");
+  }
+  /*
+  This looks good but I want to see what it looks like when I change the sea level
+  */
+}
+
+//same as testColor2 but with a changing sea level
+function testColor2i2(point) {
+  var seaLevel = floor((highestPoint-lowestPoint)/2);
+  if(point.z>(highestPoint-10)){
+    for(c in point.neighbors){
+      if(point.neighbors[c].z > (highestPoint-10)){
+        point.show("grey");
+        break;
+      }
+    }
+  }else if(point.z > seaLevel){
+    var beach = false;
+    for(c in point.neighbors){
+      for(c1 in point.neighbors[c].neighbors){
+        if(point.neighbors[c].neighbors[c1].z <= seaLevel){
+          point.show("#fad355");
+          beach = true;
+          break;
+        }
+      }
+    }
+    if(!beach){
+      point.show("green");
+    }
+  }else if(point.z <= seaLevel-42){
+    point.show("#0056b8");
+  }else if(point.z <= seaLevel){
     point.show("#287ee0");
   }
   /*
