@@ -25,16 +25,16 @@ function graphic(xOffset,yOffset) {
   console.log(mapArray[0][0]);
 }
 
-function testGraphic(theMap) {
-  for(var x = 0; x < theMap.length; x++){
-    for(var y = 0; y < theMap[0].length; y++){
+function testGraphic(xOffset,yOffset) {
+  for(var x = 0; x < mapArray.length; x++){
+    for(var y = 0; y < mapArray[0].length; y++){
       if(xOffset > 0 && yOffset > 0){
         mapArray[x][y].offset(abs((x+xOffset)%mapArray.length),abs((y+yOffset)%mapArray[0].length));
       }
-      if(x < floor(theMap.length/2)){
-        generic(theMap[x][y]);
+      if(x > floor(mapArray.length/2)){
+        changeMap(mapArray[x][y]);
       }else{
-        testColor2i2(theMap[x][y]);
+        testColor2(mapArray[x][y]);
       }
     }
   }
@@ -138,4 +138,11 @@ function testColor2i2(point) {
   /*
   This looks good but I want to see what it looks like when I change the sea level
   */
+}
+
+function changeMap(point) {
+  var sum = 0;
+  for(x in point.neighbors){
+
+  }
 }

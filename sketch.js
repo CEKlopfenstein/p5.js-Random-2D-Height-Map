@@ -55,7 +55,7 @@ function draw() {
       //saveToFile(mapArray);
       dataSent = true;
     }
-    graphic(offSets[0],offSets[1]);
+    testGraphic(offSets[0],offSets[1]);
     noLoop();
   }else if(!firstDraw){
     colorTest();
@@ -112,7 +112,6 @@ function keyPressed() {
     loop();
   }
 
-console.log(offSets);
   //Prevent default browswer actions
   return false;
 }
