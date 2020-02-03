@@ -8,6 +8,7 @@ function Cell(xCord, yCord, xDem, yDem){
   this.xTrue = xCord*xDem;
   this.yTrue = yCord*yDem;
   this.neighbors = [];
+  this.zChange = 0;
 
   //Initialization
 
@@ -15,6 +16,13 @@ function Cell(xCord, yCord, xDem, yDem){
   this.show = function(col) {
     fill(color(col));
     stroke(color(col));
+    strokeWeight(0.5);
+    rect(this.xTrue, this.yTrue, this.width, this.height);
+  }
+
+  this.grid = function(col) {
+    fill(color(col));
+    stroke(0);
     strokeWeight(0.5);
     rect(this.xTrue, this.yTrue, this.width, this.height);
   }
@@ -56,6 +64,21 @@ function Cell(xCord, yCord, xDem, yDem){
         this.neighbors[c].flowOut();
       }
     }
+  }
+
+  this.offset = function(xCord,yCord) {
+    this.x = xCord;
+    this.y = yCord;
+    this.xTrue = xCord*xDem;
+    this.yTrue = yCord*yDem;
+  }
+
+  this.findZChange = function(){
+    var sum = 0;
+    for(x in this.neighbors){
+      sum += abs(this.neighbors[x].z - this.z);
+    }
+    this.zChange = sum / 4;
   }
 
 }
