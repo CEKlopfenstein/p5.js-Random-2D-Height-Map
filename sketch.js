@@ -42,8 +42,6 @@ function setup() {
 }
 
 function draw() {
-  console.log("Loop");
-
   if(genComplete){
     if(!dataSent){
       totalTime = millis() - startTime;
@@ -51,7 +49,7 @@ function draw() {
       highestPoint = highPointFind(mapArray);
       lowestPoint = lowPointFind(mapArray);
       console.log(finalData+"\n"+highestPoint+"\n"+lowestPoint);
-      //trueLogger(finalData);
+      trueLogger(finalData);
       //saveToFile(mapArray);
       dataSent = true;
     }

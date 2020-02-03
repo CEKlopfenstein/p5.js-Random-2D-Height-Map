@@ -19,11 +19,12 @@ function mapSet(){
   }
 
   //Make Random High Points
+  highPointCords = [[33,22],[19,78],[99,41],[7,18],[41,20],[8,24],[65,99],[44,59],[65,26],[90,82],[45,97],[52,49],[58,90],[63,60],[85,49],[52,99],[86,19],[66,32],[63,88],[72,55]];
   for(var c = 0; c < pointCount; c++){
-    highPointCords.push([floor(random()*mapSize[0]),floor(random()*mapSize[1])]);
+    //highPointCords.push([floor(random()*mapSize[0]),floor(random()*mapSize[1])]);
     mapArray[highPointCords[c][0]][highPointCords[c][1]].z = 255;
   }
-  console.log(highPointCords);
+
 }
 
 //Smooth out the map by making the hight of each cell the average of those arround it
