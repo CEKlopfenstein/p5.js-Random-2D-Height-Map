@@ -23,6 +23,7 @@ function mapSet(){
     highPointCords.push([floor(random()*mapSize[0]),floor(random()*mapSize[1])]);
     mapArray[highPointCords[c][0]][highPointCords[c][1]].z = 255;
   }
+  console.log(highPointCords);
 }
 
 //Smooth out the map by making the hight of each cell the average of those arround it
