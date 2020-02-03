@@ -13,7 +13,6 @@ function initDraw() {
 
 //This is the function that colors the map
 function graphic(xOffset,yOffset) {
-  console.log(mapArray[0][0]);
   for(var x = 0; x < mapArray.length; x++){
     for(var y = 0; y < mapArray[0].length; y++){
       if(xOffset > 0 && yOffset > 0){
@@ -31,8 +30,8 @@ function testGraphic(xOffset,yOffset) {
       if(xOffset > 0 && yOffset > 0){
         mapArray[x][y].offset(abs((x+xOffset)%mapArray.length),abs((y+yOffset)%mapArray[0].length));
       }
-      if(x > floor(mapArray.length/2)){
-        changeMap(mapArray[x][y]);
+      if(x < floor(mapArray.length/2)){
+        changeMapGrad(mapArray[x][y]);
       }else{
         testColor2(mapArray[x][y]);
       }
@@ -74,6 +73,7 @@ function testColor1i1(point) {
 }
 
 //This promising
+//This is what I am going to use.
 function testColor2(point) {
   if(point.z>(highestPoint-10)){
     for(c in point.neighbors){
@@ -140,9 +140,21 @@ function testColor2i2(point) {
   */
 }
 
-function changeMap(point) {
-  var sum = 0;
-  for(x in point.neighbors){
+//Shows gradual change in z
+function changeMapGrad(point) {
+  point.findZChange();
+  var mostChange = fallRate;
+  point.show(255 - 255*(point.zChange/mostChange));
+}
 
+//Shows points when change in z reach an integer
+function changeMapPoint(point) {
+  point.findZChange();
+  var mostChange = fallRate/4;
+  for(var c = 1; c <= mostChange; c += 0.25){
+    if(point.zChange / 4 == c){
+      point.show(255 - 255*(c/mostChange));
+      break;
+    }
   }
 }

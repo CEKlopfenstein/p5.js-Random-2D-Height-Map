@@ -8,6 +8,7 @@ function Cell(xCord, yCord, xDem, yDem){
   this.xTrue = xCord*xDem;
   this.yTrue = yCord*yDem;
   this.neighbors = [];
+  this.zChange = 0;
 
   //Initialization
 
@@ -70,6 +71,14 @@ function Cell(xCord, yCord, xDem, yDem){
     this.y = yCord;
     this.xTrue = xCord*xDem;
     this.yTrue = yCord*yDem;
+  }
+
+  this.findZChange = function(){
+    var sum = 0;
+    for(x in this.neighbors){
+      sum += abs(this.neighbors[x].z - this.z);
+    }
+    this.zChange = sum / 4;
   }
 
 }
