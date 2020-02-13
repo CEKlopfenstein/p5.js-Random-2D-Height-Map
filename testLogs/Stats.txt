@@ -1,0 +1,4 @@
+Average Time: 124.182 seconds
+Median Time: 120.749 seconds
+Min Time: 101.233 seconds
+Max Time: 175.146 seconds
