@@ -57,11 +57,10 @@ function Cell(xCord, yCord, xDem, yDem){
     }
   }
 
-  this.flowOut = function(){
+  this.flowOut = function(point){
     for(var c = 0; c < this.neighbors.length; c++){
       if(this.neighbors[c].z < this.z && this.z - fallRate > 0){
         this.neighbors[c].z = this.z - fallRate;
-        this.neighbors[c].flowOut();
       }
     }
   }
