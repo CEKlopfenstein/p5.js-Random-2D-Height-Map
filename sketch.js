@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
-var mapSize = [100,100];
-var pointCount = 20;
+var mapSize = [200,200];
+var pointCount = 40;
 var fallRate = 10;
 var smoothOut = 25;
 var logFile = "Output.txt";
