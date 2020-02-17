@@ -58,10 +58,23 @@ function Cell(xCord, yCord, xDem, yDem){
   }
 
   this.flowOut = function(point){
+    var tick = 0;
     for(var c = 0; c < this.neighbors.length; c++){
-      if(this.neighbors[c].z < this.z && this.z - fallRate > 0){
-        this.neighbors[c].z = this.z - fallRate;
+      if(this.z - fallRate > 0){
+        if(this.neighbors[c].z < this.z){
+          this.neighbors[c].z = this.z - fallRate;
+          highPointCords.push([this.neighbors[c].x,this.neighbors[c].y])
+        }else{
+          tick++;
+        }
+      }else {
+        console.log("Break");
+        break;
       }
+    }
+    if(tick == 3){
+      console.log("Done");
+      console.log("Point: "+point);
     }
   }
 

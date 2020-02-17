@@ -70,7 +70,7 @@ function draw() {
     mapArray[highPointCords[points-1][0]][highPointCords[points-1][1]].flowOut(points);
     //Fill Bottom bar
     fill(color("green"));
-    rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(points/pointCount),10);
+    rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(points/highPointCords.length),10);
     //Clean Text Area
     fill(255);
     stroke(255);
@@ -79,7 +79,7 @@ function draw() {
     stroke(0);
     fill(0);
     textSize(12);
-    text(floor((points/pointCount)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
+    text(floor((points/highPointCords.length)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
     points++;
     if(points > highPointCords.length){
       genStage1 = true;
