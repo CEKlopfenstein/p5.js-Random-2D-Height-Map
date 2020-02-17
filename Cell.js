@@ -58,7 +58,6 @@ function Cell(xCord, yCord, xDem, yDem){
   }
 
   this.flowOut = function(point){
-    var tick = 0;
     for(var c = 0; c < this.neighbors.length; c++){
       if(this.z - fallRate > 0){
         if(this.neighbors[c].z == 0){
@@ -68,13 +67,8 @@ function Cell(xCord, yCord, xDem, yDem){
           tick++;
         }
       }else {
-        console.log("Break");
         break;
       }
-    }
-    if(tick == 3){
-      console.log("Done");
-      console.log("Point: "+point);
     }
   }
 

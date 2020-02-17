@@ -85,7 +85,7 @@ function draw() {
       genStage1 = true;
     }
   }else if(!genStage2){
-    //smoothMap();
+    smoothMap();
     genStage2 = true;
     genComplete = true;
   }
