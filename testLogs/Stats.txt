@@ -1,1 +1,4 @@
-Place Holder
+Average Time: 162.763 seconds
+Median Time: 162.767 seconds
+Min Time: 162.333 seconds
+Max Time: 163.303 seconds
