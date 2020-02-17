@@ -42,8 +42,6 @@ function setup() {
 }
 
 function draw() {
-  console.log("Loop");
-
   if(genComplete){
     if(!dataSent){
       totalTime = millis() - startTime;
@@ -51,7 +49,7 @@ function draw() {
       highestPoint = highPointFind(mapArray);
       lowestPoint = lowPointFind(mapArray);
       console.log(finalData+"\n"+highestPoint+"\n"+lowestPoint);
-      //trueLogger(finalData);
+      trueLogger(finalData);
       //saveToFile(mapArray);
       dataSent = true;
     }
@@ -69,10 +67,10 @@ function draw() {
     rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100,10);
     //Fill bar
     noStroke();
-    mapArray[highPointCords[points-1][0]][highPointCords[points-1][1]].flowOut();
+    mapArray[highPointCords[points-1][0]][highPointCords[points-1][1]].flowOut(points);
     //Fill Bottom bar
     fill(color("green"));
-    rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(points/pointCount),10);
+    rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(points/highPointCords.length),10);
     //Clean Text Area
     fill(255);
     stroke(255);
@@ -81,13 +79,13 @@ function draw() {
     stroke(0);
     fill(0);
     textSize(12);
-    text(floor((points/pointCount)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
+    text(floor((points/highPointCords.length)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
     points++;
-    if(points == pointCount){
+    if(points > highPointCords.length){
       genStage1 = true;
     }
   }else if(!genStage2){
-    smoothMap();
+    //smoothMap();
     genStage2 = true;
     genComplete = true;
   }
