@@ -44,7 +44,7 @@ function logIt() {
   currentSettings += "Map Size:\n\tX: "+mapSize[0]+"\n\tY: "+mapSize[1]+"\n";
 
   //Number of High Points
-  currentSettings += "Number of starting Points: "+points+"\n";
+  currentSettings += "Number of starting Points: "+pointCount+"\n";
 
   //Rate of fall
   currentSettings += "Drop off rate from starting points: "+fallRate+"\n";
