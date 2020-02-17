@@ -61,7 +61,7 @@ function Cell(xCord, yCord, xDem, yDem){
     var tick = 0;
     for(var c = 0; c < this.neighbors.length; c++){
       if(this.z - fallRate > 0){
-        if(this.neighbors[c].z < this.z){
+        if(this.neighbors[c].z == 0){
           this.neighbors[c].z = this.z - fallRate;
           highPointCords.push([this.neighbors[c].x,this.neighbors[c].y])
         }else{
