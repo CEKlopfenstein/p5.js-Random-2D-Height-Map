@@ -63,8 +63,6 @@ function Cell(xCord, yCord, xDem, yDem){
         if(this.neighbors[c].z == 0){
           this.neighbors[c].z = this.z - fallRate;
           highPointCords.push([this.neighbors[c].x,this.neighbors[c].y])
-        }else{
-          tick++;
         }
       }else {
         break;
