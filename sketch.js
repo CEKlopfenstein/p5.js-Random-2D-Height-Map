@@ -13,7 +13,10 @@ var genComplete = false;
 var genStage1 = false;
 var genStage2 = false;
 var firstDraw = false;
-var points = 1;
+var points = 0;
+var sector = 0;
+var prog = 0;
+var finalprog = pointCount;
 var xTick = 0;
 var yTick = 0;
 var highPointCords = [];
@@ -33,7 +36,7 @@ function preload() {
 
 function setup() {
   //Temp noLoop
-  noLoop();
+  //noLoop();
 
   //Canvas set up
   createCanvas(canvasSize[0],canvasSize[1]);
@@ -71,10 +74,10 @@ function draw() {
     rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100,10);
     //Fill bar
     noStroke();
-    mapArray[highPointCords[points-1][0]][highPointCords[points-1][1]].flowOut();
+    mapArray[divHighPoints[sector][points][0]][divHighPoints[sector][points][1]].flowOut();
     //Fill Bottom bar
     fill(color("green"));
-    rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(points/pointCount),10);
+    rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(prog/finalprog),10);
     //Clean Text Area
     fill(255);
     stroke(255);
@@ -83,9 +86,16 @@ function draw() {
     stroke(0);
     fill(0);
     textSize(12);
-    text(floor((points/pointCount)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
+    text(floor((prog/finalprog)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
+
+    //Hangle counters
+    prog++;
     points++;
-    if(points == pointCount){
+    if(points == divHighPoints[sector].length){
+      points = 0;
+      sector++;
+    }
+    if(prog == finalprog){
       genStage1 = true;
     }
   }else if(!genStage2){
