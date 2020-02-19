@@ -27,14 +27,12 @@ function mapSet(){
 
   //Determine cell size
   var cellSide = Math.floor(255/fallRate);
-  console.log(cellSide);
 
   //Sort highPoints into cells
-  for(pointNum in highPointCords){
-    for(var x = 0; x < mapSize[0]; x+= cellSide){
-      for(var y = 0; y < mapSize[1]; x+= cellSide){
-        
-      }
+  console.log(divHighPoints.length);
+  for(var x = 0; x < mapSize[0]; x += cellSide){
+    for(var y = 0; y < mapSize[1]; y += cellSide){
+      
     }
   }
 

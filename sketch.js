@@ -17,7 +17,7 @@ var points = 1;
 var xTick = 0;
 var yTick = 0;
 var highPointCords = [];
-var divHighPoints = [];
+var divHighPoints = [[]];
 var startTime;
 var totalTime;
 var inputFile;
