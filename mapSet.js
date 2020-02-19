@@ -28,13 +28,22 @@ function mapSet(){
   //Determine cell size
   var cellSide = Math.floor(255/fallRate);
 
+  //Temp values
+  var cellNum = [];
+  var cellCount = 0;
+
   //Sort highPoints into cells
-  console.log(divHighPoints.length);
   for(var x = 0; x < mapSize[0]; x += cellSide){
     for(var y = 0; y < mapSize[1]; y += cellSide){
-      
+      for(c in highPointCords){
+        if((highPointCords[c][0] >= x && highPointCords[c][0] < x+cellSide)&&(highPointCords[c][1] >= y && highPointCords[c][1] < y+cellSide)){
+          cellNum.push(cellCount);
+        }
+      }
     }
+    cellCount++;
   }
+  console.log(cellNum);
 
 }
 
