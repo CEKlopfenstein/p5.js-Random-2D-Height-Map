@@ -28,7 +28,7 @@ function mapSet(){
   //Determine cell size
   var cellSide = Math.floor(255/fallRate);
 
-  //Temp values
+  //Sort Values
   var cellNum = [];
   var cellCount = 0;
 
@@ -43,7 +43,16 @@ function mapSet(){
     }
     cellCount++;
   }
-  console.log(cellNum);
+
+  //Add highPoints to there own list determined by their cellNum
+  //Create lists
+  for(var c = 0; c <= cellNum[cellNum.length-1]; c++){
+    divHighPoints.push([]);
+  }
+  //Add to lists
+  for(c in highPointCords){
+    divHighPoints[cellNum[c]].push(highPointCords[c]);
+  }
 
 }
 
