@@ -17,6 +17,7 @@ var points = 1;
 var xTick = 0;
 var yTick = 0;
 var highPointCords = [];
+var divHighPoints = [];
 var startTime;
 var totalTime;
 var inputFile;
@@ -31,6 +32,9 @@ function preload() {
 }
 
 function setup() {
+  //Temp noLoop
+  noLoop();
+
   //Canvas set up
   createCanvas(canvasSize[0],canvasSize[1]);
 

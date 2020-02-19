@@ -25,6 +25,19 @@ function mapSet(){
     mapArray[highPointCords[c][0]][highPointCords[c][1]].z = 255;
   }
 
+  //Determine cell size
+  var cellSide = Math.floor(255/fallRate);
+  console.log(cellSide);
+
+  //Sort highPoints into cells
+  for(pointNum in highPointCords){
+    for(var x = 0; x < mapSize[0]; x+= cellSide){
+      for(var y = 0; y < mapSize[1]; x+= cellSide){
+        
+      }
+    }
+  }
+
 }
 
 //Smooth out the map by making the hight of each cell the average of those arround it
