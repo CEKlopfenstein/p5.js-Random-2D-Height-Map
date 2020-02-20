@@ -54,6 +54,21 @@ function mapSet(){
     divHighPoints[cellNum[c]].push(highPointCords[c]);
   }
 
+  //Sort list
+  var sortedList = [];
+  while(divHighPoints.length>0){
+    var most = 0;
+    for(c in divHighPoints){
+      if(divHighPoints[c].length > divHighPoints[most].length){
+        most = c;
+      }
+    }
+    sortedList.push(divHighPoints[most]);
+    divHighPoints.splice(most,1);
+  }
+  divHighPoints = sortedList;
+  console.log(divHighPoints);
+
 }
 
 //Smooth out the map by making the hight of each cell the average of those arround it
