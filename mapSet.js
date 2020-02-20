@@ -67,7 +67,6 @@ function mapSet(){
     divHighPoints.splice(most,1);
   }
   divHighPoints = sortedList;
-  console.log(divHighPoints);
 
 }
 
