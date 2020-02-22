@@ -74,7 +74,7 @@ function draw() {
     rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100,10);
     //Fill bar
     noStroke();
-    mapArray[divHighPoints[sector][points][0]][divHighPoints[sector][points][1]].bottomOut(sector);
+    mapArray[divHighPoints[sector][points][0]][divHighPoints[sector][points][1]].flowOut();
     //Fill Bottom bar
     fill(color("green"));
     rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(prog/finalprog),10);
