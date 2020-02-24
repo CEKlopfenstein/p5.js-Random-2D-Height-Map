@@ -66,20 +66,6 @@ function Cell(xCord, yCord, xDem, yDem){
     }
   }
 
-  this.bottomOut = function(currentBlock){
-    for(var c = 0; c < this.neighbors.length; c++){
-      if(this.z - fallRate > 0){
-        if(this.neighbors[c].z == 0){
-          this.neighbors[c].z = this.z - fallRate;
-          divHighPoints[currentBlock].push([this.neighbors[c].x,this.neighbors[c].y])
-          finalprog++;
-        }
-      }else {
-        break;
-      }
-    }
-  }
-
   this.offset = function(xCord,yCord) {
     this.x = xCord;
     this.y = yCord;
