@@ -21,7 +21,6 @@ function graphic(xOffset,yOffset) {
       testColor2(mapArray[x][y]);
     }
   }
-  console.log(mapArray[0][0]);
 }
 
 function testGraphic(xOffset,yOffset) {
