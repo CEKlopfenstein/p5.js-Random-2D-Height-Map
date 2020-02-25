@@ -50,6 +50,17 @@ function setup() {
 
 function draw() {
   translate(-canvasSize[0]/2, -canvasSize[1]/2);
+  beginShape(TRIANGLE_STRIP);
+  vertex(0,0,0);
+  vertex(0,100,0);
+  vertex(100,0,0);
+  vertex(100,100,0);
+  vertex(100,0,0);
+  vertex(100,100,0);
+  vertex(200,0,0);
+  vertex(200,100,0);
+  endShape();
+  /*
   if(genComplete){
     if(!dataSent){
       totalTime = millis() - startTime;
@@ -104,6 +115,7 @@ function draw() {
     genStage2 = true;
     genComplete = true;
   }
+  */
 }
 
 function keyPressed() {
