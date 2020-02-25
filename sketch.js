@@ -36,7 +36,7 @@ function preload() {
 
 function setup() {
   //Temp noLoop
-  //noLoop();
+  noLoop();
 
   //Canvas set up
   createCanvas(canvasSize[0],canvasSize[1],WEBGL);
@@ -51,14 +51,12 @@ function setup() {
 function draw() {
   translate(-canvasSize[0]/2, -canvasSize[1]/2);
   beginShape(TRIANGLE_STRIP);
-  vertex(0,0,0);
-  vertex(0,100,0);
-  vertex(100,0,0);
-  vertex(100,100,0);
-  vertex(100,0,0);
-  vertex(100,100,0);
-  vertex(200,0,0);
-  vertex(200,100,0);
+  for(var x = 0; x < 4; x++){
+    for(var y = 0; y < 4; y++){
+      vertex(x*100,y*100,0);
+      console.log(x*100,y*100,0);
+    }
+  }
   endShape();
   /*
   if(genComplete){
