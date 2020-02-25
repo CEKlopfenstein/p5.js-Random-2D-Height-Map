@@ -56,6 +56,7 @@ function show3d() {
   fill(155);
 
   clear();
+  background(color("springgreen"));
   for(var xP = 0; xP < mapArray.length-1; xP++){
     beginShape(TRIANGLE_STRIP);
     for(var yP = 0; yP < mapArray[0].length-1; yP++){

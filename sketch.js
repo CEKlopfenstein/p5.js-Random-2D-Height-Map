@@ -41,6 +41,9 @@ function setup() {
   //Canvas set up
   createCanvas(canvasSize[0],canvasSize[1],WEBGL);
 
+  //Set Background
+  background(color("springgreen"));
+
   //setMap
   mapSet();
 
