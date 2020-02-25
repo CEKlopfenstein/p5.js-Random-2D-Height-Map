@@ -39,7 +39,8 @@ function setup() {
   //noLoop();
 
   //Canvas set up
-  createCanvas(canvasSize[0],canvasSize[1]);
+  createCanvas(canvasSize[0],canvasSize[1],WEBGL);
+  background(51);
 
   //setMap
   mapSet();
@@ -49,6 +50,7 @@ function setup() {
 }
 
 function draw() {
+  translate(-canvasSize[0]/2, -canvasSize[1]/2);
   if(genComplete){
     if(!dataSent){
       totalTime = millis() - startTime;
