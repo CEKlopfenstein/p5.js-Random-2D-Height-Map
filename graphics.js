@@ -4,11 +4,6 @@ function initDraw() {
   stroke(0);
   strokeWeight(1);
   rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100,10);
-  textSize(24);
-  fill(0);
-  text("Terrain Generation Starting",canvasSize[0]/2-140,canvasSize[1]/2-10);
-  textSize(12);
-  text("0% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
 }
 
 //This is the function that colors the map
@@ -53,9 +48,14 @@ function generic(point) {
 }
 function show3d() {
   //Settings
+  camera(0, 0, (height/1) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, 1, 0);
+  translate(-canvasSize[0]/2, -canvasSize[1]/2);
   rotateX(PI/4);
   var ocean = true;
+  stroke(0);
+  fill(155);
 
+  clear();
   for(var xP = 0; xP < mapArray.length-1; xP++){
     beginShape(TRIANGLE_STRIP);
     for(var yP = 0; yP < mapArray[0].length-1; yP++){

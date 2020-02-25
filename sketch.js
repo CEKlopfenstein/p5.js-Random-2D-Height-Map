@@ -36,7 +36,7 @@ function preload() {
 
 function setup() {
   //Temp noLoop
-  noLoop();
+  //noLoop();
 
   //Canvas set up
   createCanvas(canvasSize[0],canvasSize[1],WEBGL);
@@ -45,11 +45,10 @@ function setup() {
   mapSet();
 
   //This is to force a load
-  mapArray = loadFromFile(inputFile);
+  //mapArray = loadFromFile(inputFile);
 }
 
 function draw() {
-  camera(0, 0, (height/1) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, 1, 0);
   translate(-canvasSize[0]/2, -canvasSize[1]/2);
   if(genComplete){
     if(!dataSent){
@@ -65,7 +64,6 @@ function draw() {
     show3d(offSets[0],offSets[1]);
     noLoop();
   }else if(!firstDraw){
-    colorTest();
     initDraw();
     firstDraw = true;
   }else if(!genStage1){
@@ -84,11 +82,6 @@ function draw() {
     fill(255);
     stroke(255);
     rect(canvasSize[0]/2+55,canvasSize[1]/2-5,100,10);
-    //Add Text
-    stroke(0);
-    fill(0);
-    textSize(12);
-    text(floor((prog/finalprog)*1000)/10+"% Complete",canvasSize[0]/2+55,canvasSize[1]/2+5);
 
     //Hangle counters
     prog++;
