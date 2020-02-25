@@ -106,24 +106,6 @@ function draw() {
 }
 
 function keyPressed() {
-  if(keyCode === LEFT_ARROW){
-    offSets[0] += -1;
-    clear();
-    loop();
-  }else if (keyCode === RIGHT_ARROW) {
-    offSets[0] += 1;
-    clear();
-    loop();
-  }else if (keyCode === UP_ARROW) {
-    offSets[1] += -1;
-    clear();
-    loop();
-  }else if (keyCode === DOWN_ARROW) {
-    offSets[1] += 1;
-    clear();
-    loop();
-  }
-
   //Prevent default browswer actions
   return false;
 }
