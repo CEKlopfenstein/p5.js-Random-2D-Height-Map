@@ -52,10 +52,31 @@ function generic(point) {
   }
 }
 function show3d() {
+  rotateX(PI/4);
+  fill(200);
+  ambientLight(255);
+  for(var xP = 0; xP < mapArray.length-1; xP++){
+    for(var yP = 0; yP < mapArray[0].length-1; yP++){
+      beginShape(TRIANGLE_STRIP);
+      for(var x = 0; x < 2; x++){
+        for(var y = 0; y < 2; y++){
+          vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,mapArray[xP+x][yP+y].z);
+        }
+      }
+      endShape();
+    }
+  }
+
+
+  fill(color("blue"));
   beginShape(TRIANGLE_STRIP);
-  for(var x = 0; x < mapArray.length; x++){
-    for(var y = 0; y < mapArray[0].length; y++){
-      vertex(mapArray[x][y].xTrue,mapArray[x][y].yTrue,mapArray[x][y].z);
+  for(var xP = 0; xP < mapArray.length-1; xP++){
+    for(var yP = 0; yP < mapArray[0].length-1; yP++){
+      for(var x = 0; x < 2; x++){
+        for(var y = 0; y < 2; y++){
+          vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,127);
+        }
+      }
     }
   }
   endShape();
