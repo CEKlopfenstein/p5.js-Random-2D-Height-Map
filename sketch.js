@@ -49,12 +49,18 @@ function setup() {
 }
 
 function draw() {
-  translate(-canvasSize[0]/2, -canvasSize[1]/2);
+  var test = [[0,0,0],[0,30,0],[0,0,0]];
+  translate(-canvasSize[0]/3, -canvasSize[1]/3);
+  rotateX(PI/4);
   beginShape(TRIANGLE_STRIP);
-  for(var x = 0; x < 2; x++){
-    for(var y = 0; y < 2; y++){
-      vertex(x*100,y*100,0);
-      console.log(x*100,y*100,0);
+  for(var xP = 0; xP < 2; xP++){
+    for(var yP = 0; yP < 2; yP++){
+      for(var x = 0; x < 2; x++){
+        for(var y = 0; y < 2; y++){
+          vertex(x*100+(xP*100),y*100+(yP*100),test[xP+x][yP+y]);
+          console.log("Cord ",xP,yP,x,y,"True cords",xP+x,yP+y);
+        }
+      }
     }
   }
   endShape();
