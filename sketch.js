@@ -61,7 +61,7 @@ function draw() {
       //saveToFile(mapArray);
       dataSent = true;
     }
-    graphic(offSets[0],offSets[1]);
+    show3d(offSets[0],offSets[1]);
     noLoop();
   }else if(!firstDraw){
     colorTest();

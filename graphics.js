@@ -52,9 +52,11 @@ function generic(point) {
   }
 }
 function show3d() {
+  beginShape(TRIANGLE_STRIP);
   for(var x = 0; x < mapArray.length; x++){
     for(var y = 0; y < mapArray[0].length; y++){
-      generic(mapArray[x][y]);
+      vertex(mapArray[x][y].xTrue,mapArray[x][y].yTrue,mapArray[x][y].z);
     }
   }
+  endShape();
 }
