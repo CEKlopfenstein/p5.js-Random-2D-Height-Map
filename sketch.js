@@ -40,7 +40,6 @@ function setup() {
 
   //Canvas set up
   createCanvas(canvasSize[0],canvasSize[1],WEBGL);
-  background(51);
 
   //setMap
   mapSet();

@@ -51,3 +51,10 @@ function generic(point) {
     point.show("#287ee0");
   }
 }
+function show3d() {
+  for(var x = 0; x < mapArray.length; x++){
+    for(var y = 0; y < mapArray[0].length; y++){
+      generic(mapArray[x][y]);
+    }
+  }
+}
