@@ -78,10 +78,6 @@ function draw() {
     //Fill Bottom bar
     fill(color("green"));
     rect(canvasSize[0]/2-50,canvasSize[1]/2-5,100*(prog/finalprog),10);
-    //Clean Text Area
-    fill(255);
-    stroke(255);
-    rect(canvasSize[0]/2+55,canvasSize[1]/2-5,100,10);
 
     //Hangle counters
     prog++;
