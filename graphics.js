@@ -52,9 +52,10 @@ function generic(point) {
   }
 }
 function show3d() {
+  //Settings
   rotateX(PI/4);
-  fill(200);
-  ambientLight(255);
+  var ocean = true;
+
   for(var xP = 0; xP < mapArray.length-1; xP++){
     beginShape(TRIANGLE_STRIP);
     for(var yP = 0; yP < mapArray[0].length-1; yP++){
@@ -67,17 +68,19 @@ function show3d() {
     endShape();
   }
 
-
-  fill(color("blue"));
-  beginShape(TRIANGLE_STRIP);
-  for(var xP = 0; xP < mapArray.length-1; xP++){
-    for(var yP = 0; yP < mapArray[0].length-1; yP++){
-      for(var x = 0; x < 2; x++){
-        for(var y = 0; y < 2; y++){
-          vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,127);
+  if(ocean){
+    fill(color("blue"));
+    stroke(color("blue"));
+    beginShape(TRIANGLE_STRIP);
+    for(var xP = 0; xP < mapArray.length-1; xP++){
+      for(var yP = 0; yP < mapArray[0].length-1; yP++){
+        for(var x = 0; x < 2; x++){
+          for(var y = 0; y < 2; y++){
+            vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,127);
+          }
         }
       }
     }
+    endShape();
   }
-  endShape();
 }
