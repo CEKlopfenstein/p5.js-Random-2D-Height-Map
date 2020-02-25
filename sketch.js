@@ -51,8 +51,8 @@ function setup() {
 function draw() {
   translate(-canvasSize[0]/2, -canvasSize[1]/2);
   beginShape(TRIANGLE_STRIP);
-  for(var x = 0; x < 4; x++){
-    for(var y = 0; y < 4; y++){
+  for(var x = 0; x < 2; x++){
+    for(var y = 0; y < 2; y++){
       vertex(x*100,y*100,0);
       console.log(x*100,y*100,0);
     }
