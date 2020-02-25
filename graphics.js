@@ -56,15 +56,15 @@ function show3d() {
   fill(200);
   ambientLight(255);
   for(var xP = 0; xP < mapArray.length-1; xP++){
+    beginShape(TRIANGLE_STRIP);
     for(var yP = 0; yP < mapArray[0].length-1; yP++){
-      beginShape(TRIANGLE_STRIP);
       for(var x = 0; x < 2; x++){
         for(var y = 0; y < 2; y++){
           vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,mapArray[xP+x][yP+y].z);
         }
       }
-      endShape();
     }
+    endShape();
   }
 
 
