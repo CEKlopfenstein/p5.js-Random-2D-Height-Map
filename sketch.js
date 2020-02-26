@@ -29,15 +29,6 @@ var lowestPoint;
 var offSets = [mapSize[0]*100,mapSize[1]*100];
 var dataSent = false;
 var testTick = 0;
-//Demo Variables
-let sliderGroup = [];
-let X;
-let Y;
-let Z;
-let centerX;
-let centerY;
-let centerZ;
-var demoMove = false;
 
 function preload() {
   inputFile = loadStrings("mapTest.txt");
@@ -57,19 +48,8 @@ function setup() {
   mapSet();
 
   //This is to force a load
-  mapArray = loadFromFile(inputFile);
+  //mapArray = loadFromFile(inputFile);
 
-  //Demo setup
-  for (var i = 0; i < 6; i++) {
-    if (i === 2) {
-      sliderGroup[i] = createSlider(10, 400, 200);
-    } else {
-      sliderGroup[i] = createSlider(-400, 400, 0);
-    }
-    h = map(i, 0, 6, 5, 85);
-    sliderGroup[i].position(10, height + h);
-    sliderGroup[i].style('width', '80px');
-  }
 }
 
 function draw() {
@@ -87,6 +67,7 @@ function draw() {
       dataSent = true;
     }
     show3d();
+    noLoop();
   }else if(!firstDraw){
     initDraw();
     firstDraw = true;

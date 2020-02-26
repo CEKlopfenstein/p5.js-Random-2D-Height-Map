@@ -48,7 +48,7 @@ function generic(point) {
 }
 function show3d() {
   //Settings
-  camera(canvasSize[0]/2+sliderGroup[0].value(), -300+sliderGroup[1].value(), (height/2) / tan(PI*30.0 / 180.0)+200+sliderGroup[2].value(), canvasSize[0]/2+sliderGroup[3].value(), canvasSize[1]/2+sliderGroup[4].value(), highestPoint/2+sliderGroup[5].value(), 0, -1, 0);
+  camera(canvasSize[0]/2, -300, (height/2) / tan(PI*30.0 / 180.0)+200, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, -1, 0);
   var ocean = true;
   stroke(0);
   fill(155);
