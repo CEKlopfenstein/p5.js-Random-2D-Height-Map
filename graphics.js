@@ -86,7 +86,6 @@ function show3d() {
 
 function show3dColor() {
   //Settings
-  camera(canvasSize[0]/2, -300, (height/2) / tan(PI*30.0 / 180.0)+200, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, -1, 0);
   stroke(0);
   fill(155);
   clear();
@@ -112,6 +111,7 @@ function show3dColor() {
 
   //Draw the Border Mesh
   fill(200);
+  //Front and Back
   for(var c = 0; c < mapArray.length-1; c++ ){
     beginShape();
     if(mapArray[c][0].z > 127){
@@ -140,6 +140,7 @@ function show3dColor() {
     }
     endShape(CLOSE);
   }
+  //Sides
   for(var c = 0; c < mapArray[0].length-1; c++){
     beginShape();
     if(mapArray[0][c].z > 127){
@@ -168,6 +169,13 @@ function show3dColor() {
     }
     endShape(CLOSE);
   }
+  //Bottom
+  beginShape();
+  vertex(mapArray[0][0].xTrue,mapArray[0][0].yTrue,0);
+  vertex(mapArray[mapArray.length-1][0].xTrue,mapArray[mapArray.length-1][0].yTrue,0);
+  vertex(mapArray[mapArray.length-1][mapArray[0].length-1].xTrue,mapArray[mapArray.length-1][mapArray[0].length-1].yTrue,0);
+  vertex(mapArray[0][mapArray[0].length-1].xTrue,mapArray[0][mapArray[0].length-1].yTrue,0);
+  endShape(CLOSE);
 }
 
 function pickColor(point) {
