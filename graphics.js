@@ -92,6 +92,7 @@ function show3dColor() {
   clear();
   background(255);
 
+  //Draw the Main mesh.
   for(var xP = 0; xP < mapArray.length-1; xP++){
     beginShape(TRIANGLE_STRIP);
     for(var yP = 0; yP < mapArray[0].length-1; yP++){
@@ -108,6 +109,20 @@ function show3dColor() {
     }
     endShape();
   }
+
+  //Draw the Border Mesh
+  fill(0);
+  beginShape();
+  vertex(mapArray[0][0].xTrue,mapArray[0][0].yTrue,0);
+  for(var c = 0; c < mapArray.length; c++ ){
+    if(mapArray[c][0].z > 127){
+      vertex(mapArray[c][0].xTrue,mapArray[c][0].yTrue,mapArray[c][0].z);
+    }else{
+      vertex(mapArray[c][0].xTrue,mapArray[c][0].yTrue,127);
+    }
+  }
+  vertex(mapArray[mapArray.length-1][0].xTrue,mapArray[mapArray.length-1][0].yTrue,0);
+  endShape(CLOSE);
 }
 
 function pickColor(point) {
