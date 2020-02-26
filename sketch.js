@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
 var mapSize = [100,100];
-var pointCount = 2;
+var pointCount = 70;
 var fallRate = 10;
 var smoothOut = 25;
 var logFile = "Output.txt";
@@ -48,7 +48,7 @@ function setup() {
   mapSet();
 
   //This is to force a load
-  //mapArray = loadFromFile(inputFile);
+  mapArray = loadFromFile(inputFile);
 
 }
 
@@ -66,7 +66,7 @@ function draw() {
       //saveToFile(mapArray);
       dataSent = true;
     }
-    show3d();
+    show3dColor();
     noLoop();
   }else if(!firstDraw){
     initDraw();
