@@ -126,6 +126,19 @@ function show3dColor() {
       vertex(mapArray[c+1][0].xTrue,mapArray[c+1][0].yTrue,0);
     }
     endShape(CLOSE);
+    beginShape();
+    if(mapArray[c][mapArray[0].length-1].z > 127){
+      vertex(mapArray[c][mapArray[0].length-1].xTrue,mapArray[c][mapArray[0].length-1].yTrue,0);
+      vertex(mapArray[c][mapArray[0].length-1].xTrue,mapArray[c][mapArray[0].length-1].yTrue,mapArray[c][mapArray[0].length-1].z);
+      vertex(mapArray[c+1][mapArray[0].length-1].xTrue,mapArray[c+1][mapArray[0].length-1].yTrue,mapArray[c+1][mapArray[0].length-1].z);
+      vertex(mapArray[c+1][mapArray[0].length-1].xTrue,mapArray[c+1][mapArray[0].length-1].yTrue,0);
+    }else{
+      vertex(mapArray[c][mapArray[0].length-1].xTrue,mapArray[c][mapArray[0].length-1].yTrue,0);
+      vertex(mapArray[c][mapArray[0].length-1].xTrue,mapArray[c][mapArray[0].length-1].yTrue,127);
+      vertex(mapArray[c+1][mapArray[0].length-1].xTrue,mapArray[c+1][mapArray[0].length-1].yTrue,127);
+      vertex(mapArray[c+1][mapArray[0].length-1].xTrue,mapArray[c+1][mapArray[0].length-1].yTrue,0);
+    }
+    endShape(CLOSE);
   }
 }
 
