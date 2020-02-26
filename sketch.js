@@ -48,7 +48,7 @@ function setup() {
   mapSet();
 
   //This is to force a load
-  //mapArray = loadFromFile(inputFile);
+  mapArray = loadFromFile(inputFile);
 
 }
 
