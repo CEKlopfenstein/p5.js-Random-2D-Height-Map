@@ -111,8 +111,8 @@ function show3dColor() {
   }
 
   //Draw the Border Mesh
+  fill(200);
   for(var c = 0; c < mapArray.length-1; c++ ){
-    fill(200);
     beginShape();
     if(mapArray[c][0].z > 127){
       vertex(mapArray[c][0].xTrue,mapArray[c][0].yTrue,0);
@@ -137,6 +137,34 @@ function show3dColor() {
       vertex(mapArray[c][mapArray[0].length-1].xTrue,mapArray[c][mapArray[0].length-1].yTrue,127);
       vertex(mapArray[c+1][mapArray[0].length-1].xTrue,mapArray[c+1][mapArray[0].length-1].yTrue,127);
       vertex(mapArray[c+1][mapArray[0].length-1].xTrue,mapArray[c+1][mapArray[0].length-1].yTrue,0);
+    }
+    endShape(CLOSE);
+  }
+  for(var c = 0; c < mapArray[0].length-1; c++){
+    beginShape();
+    if(mapArray[0][c].z > 127){
+      vertex(mapArray[0][c].xTrue,mapArray[0][c].yTrue,0);
+      vertex(mapArray[0][c].xTrue,mapArray[0][c].yTrue,mapArray[0][c].z);
+      vertex(mapArray[0][c+1].xTrue,mapArray[0][c+1].yTrue,mapArray[0][c+1].z);
+      vertex(mapArray[0][c+1].xTrue,mapArray[0][c+1].yTrue,0);
+    }else{
+      vertex(mapArray[0][c].xTrue,mapArray[0][c].yTrue,0);
+      vertex(mapArray[0][c].xTrue,mapArray[0][c].yTrue,127);
+      vertex(mapArray[0][c+1].xTrue,mapArray[0][c+1].yTrue,127);
+      vertex(mapArray[0][c+1].xTrue,mapArray[0][c+1].yTrue,0);
+    }
+    endShape(CLOSE);
+    beginShape();
+    if(mapArray[c][mapArray[0].length-1].z > 127){
+      vertex(mapArray[mapArray[0].length-1][c].xTrue,mapArray[mapArray[0].length-1][c].yTrue,0);
+      vertex(mapArray[mapArray[0].length-1][c].xTrue,mapArray[mapArray[0].length-1][c].yTrue,mapArray[mapArray[0].length-1][c].z);
+      vertex(mapArray[mapArray[0].length-1][c+1].xTrue,mapArray[mapArray[0].length-1][c+1].yTrue,mapArray[mapArray[0].length-1][c+1].z);
+      vertex(mapArray[mapArray[0].length-1][c+1].xTrue,mapArray[mapArray[0].length-1][c+1].yTrue,0);
+    }else{
+      vertex(mapArray[mapArray[0].length-1][c].xTrue,mapArray[mapArray[0].length-1][c].yTrue,0);
+      vertex(mapArray[mapArray[0].length-1][c].xTrue,mapArray[mapArray[0].length-1][c].yTrue,127);
+      vertex(mapArray[mapArray[0].length-1][c+1].xTrue,mapArray[mapArray[0].length-1][c+1].yTrue,127);
+      vertex(mapArray[mapArray[0].length-1][c+1].xTrue,mapArray[mapArray[0].length-1][c+1].yTrue,0);
     }
     endShape(CLOSE);
   }
