@@ -97,11 +97,10 @@ function show3dColor() {
     for(var yP = 0; yP < mapArray[0].length-1; yP++){
       for(var x = 0; x < 2; x++){
         for(var y = 0; y < 2; y++){
+          pickColor(mapArray[xP+x][yP+y]);
           if(mapArray[xP+x][yP+y].z > 127){
-            pickColor(mapArray[xP+x][yP+y]);
             vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,mapArray[xP+x][yP+y].z);
           }else{
-            pickColor(mapArray[xP+x][yP+y]);
             vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,127);
           }
         }
