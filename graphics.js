@@ -87,7 +87,6 @@ function show3d() {
 function show3dColor() {
   //Settings
   camera(canvasSize[0]/2, -300, (height/2) / tan(PI*30.0 / 180.0)+200, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, -1, 0);
-  var ocean = true;
   stroke(0);
   fill(155);
   clear();
@@ -98,38 +97,17 @@ function show3dColor() {
     for(var yP = 0; yP < mapArray[0].length-1; yP++){
       for(var x = 0; x < 2; x++){
         for(var y = 0; y < 2; y++){
-          if(mapArray[xP+x][yP+y].z > 120){
+          if(mapArray[xP+x][yP+y].z > 127){
             pickColor(mapArray[xP+x][yP+y]);
+            vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,mapArray[xP+x][yP+y].z);
           }else{
-            fill(color("#287ee0"));
-            fill(255);
-          }
-          vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,mapArray[xP+x][yP+y].z);
-        }
-      }
-    }
-    endShape();
-  }
-
-  if(ocean){
-    for(var xP = 0; xP < mapArray.length-1; xP++){
-      beginShape(TRIANGLE_STRIP);
-      for(var yP = 0; yP < mapArray[0].length-1; yP++){
-        for(var x = 0; x < 2; x++){
-          for(var y = 0; y < 2; y++){
-            if(mapArray[xP+x][yP+y].z<=127){
-              pickColor(mapArray[xP+x][yP+y]);
-            }else if (mapArray[xP+x][yP+y].z <= 130){
-              fill(color("#287ee0"));
-            }else{
-              fill(255);
-            }
+            pickColor(mapArray[xP+x][yP+y]);
             vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,127);
           }
         }
       }
-      endShape();
     }
+    endShape();
   }
 }
 
