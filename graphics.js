@@ -111,18 +111,22 @@ function show3dColor() {
   }
 
   //Draw the Border Mesh
-  fill(0);
-  beginShape();
-  vertex(mapArray[0][0].xTrue,mapArray[0][0].yTrue,0);
-  for(var c = 0; c < mapArray.length; c++ ){
+  for(var c = 0; c < mapArray.length-1; c++ ){
+    fill(200);
+    beginShape();
     if(mapArray[c][0].z > 127){
+      vertex(mapArray[c][0].xTrue,mapArray[c][0].yTrue,0);
       vertex(mapArray[c][0].xTrue,mapArray[c][0].yTrue,mapArray[c][0].z);
+      vertex(mapArray[c+1][0].xTrue,mapArray[c+1][0].yTrue,mapArray[c+1][0].z);
+      vertex(mapArray[c+1][0].xTrue,mapArray[c+1][0].yTrue,0);
     }else{
+      vertex(mapArray[c][0].xTrue,mapArray[c][0].yTrue,0);
       vertex(mapArray[c][0].xTrue,mapArray[c][0].yTrue,127);
+      vertex(mapArray[c+1][0].xTrue,mapArray[c+1][0].yTrue,127);
+      vertex(mapArray[c+1][0].xTrue,mapArray[c+1][0].yTrue,0);
     }
+    endShape(CLOSE);
   }
-  vertex(mapArray[mapArray.length-1][0].xTrue,mapArray[mapArray.length-1][0].yTrue,0);
-  endShape(CLOSE);
 }
 
 function pickColor(point) {
