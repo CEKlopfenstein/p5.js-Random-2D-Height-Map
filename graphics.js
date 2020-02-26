@@ -48,7 +48,7 @@ function generic(point) {
 }
 function show3d() {
   //Settings
-  camera(canvasSize[0]/2, canvasSize[1], (height/1.5) / tan(PI*30.0 / 180.0), canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 1, 0);
+  camera(canvasSize[0]/2+sliderGroup[0].value(), -300+sliderGroup[1].value(), (height/2) / tan(PI*30.0 / 180.0)+200+sliderGroup[2].value(), canvasSize[0]/2+sliderGroup[3].value(), canvasSize[1]/2+sliderGroup[4].value(), highestPoint/2+sliderGroup[5].value(), 0, -1, 0);
   var ocean = true;
   stroke(0);
   fill(155);
@@ -70,8 +70,8 @@ function show3d() {
   if(ocean){
     fill(color("blue"));
     stroke(color("blue"));
-    beginShape(TRIANGLE_STRIP);
     for(var xP = 0; xP < mapArray.length-1; xP++){
+      beginShape(TRIANGLE_STRIP);
       for(var yP = 0; yP < mapArray[0].length-1; yP++){
         for(var x = 0; x < 2; x++){
           for(var y = 0; y < 2; y++){
@@ -79,7 +79,7 @@ function show3d() {
           }
         }
       }
+      endShape();
     }
-    endShape();
   }
 }

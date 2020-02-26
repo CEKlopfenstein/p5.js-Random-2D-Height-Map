@@ -46,6 +46,9 @@ function loadFromFile(textInput) {
   }
 
   //Force draw
+  genStage2 = true;
+  genStage1 = true;
+  firstDraw = true;
   genComplete = true;
 
   //Return the loaded map
