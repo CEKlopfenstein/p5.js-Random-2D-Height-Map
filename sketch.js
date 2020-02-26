@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
 var mapSize = [100,100];
-var pointCount = 20;
+var pointCount = 2;
 var fallRate = 10;
 var smoothOut = 25;
 var logFile = "Output.txt";
@@ -13,6 +13,7 @@ var genComplete = false;
 var genStage1 = false;
 var genStage2 = false;
 var firstDraw = false;
+var demoMove = false;
 var points = 0;
 var sector = 0;
 var prog = 0;
@@ -48,11 +49,12 @@ function setup() {
   mapSet();
 
   //This is to force a load
-  //mapArray = loadFromFile(inputFile);
+  mapArray = loadFromFile(inputFile);
 }
 
 function draw() {
   translate(-canvasSize[0]/2, -canvasSize[1]/2);
+
   if(genComplete){
     if(!dataSent){
       totalTime = millis() - startTime;
@@ -63,8 +65,9 @@ function draw() {
       //trueLogger(finalData);
       //saveToFile(mapArray);
       dataSent = true;
+      genComplete = false;
     }
-    show3d(offSets[0],offSets[1]);
+    show3d();
     noLoop();
   }else if(!firstDraw){
     initDraw();

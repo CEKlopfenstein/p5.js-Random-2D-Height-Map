@@ -48,9 +48,7 @@ function generic(point) {
 }
 function show3d() {
   //Settings
-  camera(0, 0, (height/1) / tan(PI*30.0 / 180.0), 0, 0, 0, 0, 1, 0);
-  translate(-canvasSize[0]/2, -canvasSize[1]/2);
-  rotateX(PI/4);
+  camera(canvasSize[0]/2, canvasSize[1], (height/1.5) / tan(PI*30.0 / 180.0), canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 1, 0);
   var ocean = true;
   stroke(0);
   fill(155);
