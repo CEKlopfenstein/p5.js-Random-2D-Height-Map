@@ -199,7 +199,94 @@ function pickColor(point) {
       }
     }
     if(!beach){
+      fill(color(20,150+(point.z-127)*(100/(highestPoint-127)),20));
+    }
+  }else if(point.z <= 85){
+    fill(color("#0056b8"));
+  }else if(point.z <= 127){
+    fill(color("#287ee0"));
+  }
+}
+function plainColor(point) {
+  noStroke();
+  if(point.z>(highestPoint-10)){
+    for(c in point.neighbors){
+      if(point.neighbors[c].z > (highestPoint-10)){
+        fill(color("grey"));
+        break;
+      }
+    }
+  }else if(point.z > 127){
+    var beach = false;
+    for(c in point.neighbors){
+      for(c1 in point.neighbors[c].neighbors){
+        if(point.neighbors[c].neighbors[c1].z <= 127){
+          fill(color("#fad355"));
+          beach = true;
+          break;
+        }
+      }
+    }
+    if(!beach){
+      fill(color("green"));
+    }
+  }else if(point.z <= 85){
+    fill(color("#0056b8"));
+  }else if(point.z <= 127){
+    fill(color("#287ee0"));
+  }
+}
+function randomGreen(point) {
+  noStroke();
+  if(point.z>(highestPoint-10)){
+    for(c in point.neighbors){
+      if(point.neighbors[c].z > (highestPoint-10)){
+        fill(color("grey"));
+        break;
+      }
+    }
+  }else if(point.z > 127){
+    var beach = false;
+    for(c in point.neighbors){
+      for(c1 in point.neighbors[c].neighbors){
+        if(point.neighbors[c].neighbors[c1].z <= 127){
+          fill(color("#fad355"));
+          beach = true;
+          break;
+        }
+      }
+    }
+    if(!beach){
       fill(color(20,150+random(10)*10,20));
+    }
+  }else if(point.z <= 85){
+    fill(color("#0056b8"));
+  }else if(point.z <= 127){
+    fill(color("#287ee0"));
+  }
+}
+function greenGrad(point) {
+  noStroke();
+  if(point.z>(highestPoint-10)){
+    for(c in point.neighbors){
+      if(point.neighbors[c].z > (highestPoint-10)){
+        fill(color("grey"));
+        break;
+      }
+    }
+  }else if(point.z > 127){
+    var beach = false;
+    for(c in point.neighbors){
+      for(c1 in point.neighbors[c].neighbors){
+        if(point.neighbors[c].neighbors[c1].z <= 127){
+          fill(color("#fad355"));
+          beach = true;
+          break;
+        }
+      }
+    }
+    if(!beach){
+      fill(color(20,150+(point.z-127)*(100/(highestPoint-127)),20));
     }
   }else if(point.z <= 85){
     fill(color("#0056b8"));
