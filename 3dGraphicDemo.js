@@ -1,3 +1,8 @@
+/*
+This function creates two meshes. One with no color that uses the map height data.
+And the other being blue and flat to show the ocean level.
+It was a simple demo to make sure the plan would work and is more or less the basis of what came next.
+*/
 function show3d() {
   //Settings
   camera(canvasSize[0]/2, -300, (height/2) / tan(PI*30.0 / 180.0)+200, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, -1, 0);
@@ -36,6 +41,14 @@ function show3d() {
   }
 }
 
+
+/*
+This demo started out as a carbon copy of show3d but with color. Sence then
+The color has been tweaked multiple times and now uses a single mesh.
+It also has a border around the whole thing that makes it look like it has some depth.
+Though it was originally to hide where 2 meshes where joining it was left for look.
+I may move the border to its own function eventually.
+*/
 function show3dColor() {
   //Settings
   stroke(0);
@@ -130,6 +143,10 @@ function show3dColor() {
   endShape(CLOSE);
 }
 
+/*
+This is the testing color profile. Tweaks will be made to this and once a good result is found a copy will be placed
+below it. This is so that I have something to fall back on it I screw something up big time.
+*/
 function pickColor(point) {
   noStroke();
   if(point.z>(highestPoint-10)){
@@ -159,6 +176,12 @@ function pickColor(point) {
     fill(color("#287ee0"));
   }
 }
+
+/*
+This was the color profile I started with. Most changes that have dome are to the green and how it is done.
+Though more may come in future. This is littery the oh shit backup. If all the others get shitted on this gives
+atleast something of a base.
+*/
 function plainColor(point) {
   noStroke();
   if(point.z>(highestPoint-10)){
@@ -188,6 +211,12 @@ function plainColor(point) {
     fill(color("#287ee0"));
   }
 }
+
+/*
+This one replaces the standard green with a green that varies per triangle based on a random number.
+This gives it a folleage look but doesn't help with depth perception like I had originally hoped. Looks
+ok though and so I kept it.
+*/
 function randomGreen(point) {
   noStroke();
   if(point.z>(highestPoint-10)){
@@ -217,6 +246,10 @@ function randomGreen(point) {
     fill(color("#287ee0"));
   }
 }
+
+/*
+This is the current color model and makes the green brighter as it does up. Makes the depth more apparent.
+*/
 function greenGrad(point) {
   noStroke();
   if(point.z>(highestPoint-10)){
@@ -246,6 +279,10 @@ function greenGrad(point) {
     fill(color("#287ee0"));
   }
 }
+
+/*
+The blow are different camera points. There names are self explanitory.
+*/
 function topCamera() {
   camera(canvasSize[0]/2, -300, (height/2) / tan(PI*30.0 / 180.0)+200, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, -1, 0);
 }
