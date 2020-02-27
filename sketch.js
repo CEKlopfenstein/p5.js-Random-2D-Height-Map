@@ -30,6 +30,8 @@ var offSets = [mapSize[0]*100,mapSize[1]*100];
 var dataSent = false;
 var testTick = 0;
 
+var test;
+
 function preload() {
   inputFile = loadStrings("mapTest.txt");
 }
@@ -47,15 +49,18 @@ function setup() {
   //setMap
   mapSet();
 
+  test = createElement('h3',100*(prog/finalprog)+"%");
+
   //This is to force a load
-  mapArray = loadFromFile(inputFile);
-  createElement('center', '<h1>3D Terrain Generation Demo</h1>');
+  //mapArray = loadFromFile(inputFile);
+  //createElement('center', '<h1>3D Terrain Generation Demo</h1>');
 
 }
 
 function draw() {
   translate(-canvasSize[0]/2, -canvasSize[1]/2);
-
+  test.remove();
+  test = createElement('h3',100*(prog/finalprog)+"%");
   if(genComplete){
     if(!dataSent){
       totalTime = millis() - startTime;
