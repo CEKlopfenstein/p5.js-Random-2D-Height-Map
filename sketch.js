@@ -66,7 +66,7 @@ function draw() {
       //saveToFile(mapArray);
       dataSent = true;
     }
-    testCamera();
+    topCamera();
     show3dColor();
     noLoop();
   }else if(!firstDraw){

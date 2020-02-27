@@ -284,7 +284,7 @@ function greenGrad(point) {
 The blow are different camera points. There names are self explanitory.
 */
 function topCamera() {
-  camera(canvasSize[0]/2, -300, (height/2) / tan(PI*30.0 / 180.0)+200, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, -1, 0);
+  camera(canvasSize[0]/2, -canvasSize[1]*0.75, 450, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 0, -1);
 }
 function testCamera() {
   camera(canvasSize[0]*1.3, -canvasSize[1]*0.3, 370, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 0, -1);
