@@ -49,7 +49,7 @@ function setup() {
 
   //This is to force a load
   mapArray = loadFromFile(inputFile);
-  createElement('html', '<h1>this is a test</h1><br/>Ping<br/><h3>This should work quite well</h3>');
+  createElement('center', '<h1>3D Terrain Generation Demo</h1>');
 
 }
 
