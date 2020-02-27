@@ -199,7 +199,7 @@ function pickColor(point) {
       }
     }
     if(!beach){
-      fill(color("green"));
+      fill(color(20,150+random(10)*10,20));
     }
   }else if(point.z <= 85){
     fill(color("#0056b8"));
