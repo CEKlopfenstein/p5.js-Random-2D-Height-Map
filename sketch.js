@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
 var mapSize = [100,100];
-var pointCount = 20;
+var pointCount = 15;
 var fallRate = 10;
 var smoothOut = 25;
 var logFile = "Output.txt";
@@ -53,14 +53,14 @@ function setup() {
 
   //HTML
   createElement('center', '<h1>3D Terrain Generation Demo</h1><br/>');
-  progressDisplay = createElement('h3',"Progress: "+round(100*(prog/finalprog))+"%");
+  progressDisplay = createElement('h3',"Progress: "+floor(100*(prog/finalprog))+"%");
 
 }
 
 function draw() {
   translate(-canvasSize[0]/2, -canvasSize[1]/2);
   progressDisplay.remove();
-  progressDisplay = createElement('h3',"Progress: "+round(100*(prog/finalprog))+"%");
+  progressDisplay = createElement('h3',"Progress: "+floor(10000*(prog/finalprog))/100+"%");
   if(genComplete){
     if(!dataSent){
       totalTime = millis() - startTime;
