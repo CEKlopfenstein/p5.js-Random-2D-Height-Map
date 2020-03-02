@@ -1,5 +1,5 @@
 //Settings
-var canvasSize = [640,480];
+var canvasSize = [1280,960];
 var mapSize = [100,100];
 var pointCount = 25;
 var fallRate = 10;
@@ -49,7 +49,7 @@ function setup() {
   mapSet();
 
   //This is to force a load
-  mapArray = loadFromFile(inputFile);
+  //mapArray = loadFromFile(inputFile);
 
   //HTML
   createElement('center', '<h1>3D Terrain Generation Demo</h1><br/>');
