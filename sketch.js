@@ -72,9 +72,8 @@ function draw() {
       //saveToFile(mapArray);
       dataSent = true;
     }
-    testCamera();
+    panCenterCamera();
     show3dColor();
-    noLoop();
   }else if(!firstDraw){
     initDraw();
     firstDraw = true;
