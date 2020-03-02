@@ -64,9 +64,9 @@ function show3dColor() {
         for(var y = 0; y < 2; y++){
           pickColor(mapArray[xP+x][yP+y]);
           if(mapArray[xP+x][yP+y].z > 127){
-            vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,mapArray[xP+x][yP+y].z/255*100);
+            vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,mapArray[xP+x][yP+y].z);
           }else{
-            vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,127/255*100);
+            vertex(mapArray[xP+x][yP+y].xTrue,mapArray[xP+x][yP+y].yTrue,127);
           }
         }
       }
