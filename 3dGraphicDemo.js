@@ -287,7 +287,17 @@ function topCamera() {
   camera(canvasSize[0]/2, -canvasSize[1]*0.75, 450, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 0, -1);
 }
 function testCamera() {
-  camera(canvasSize[0]*1.3, -canvasSize[1]*0.3, 370, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 0, -1);
+  var xPoint = floor(mapArray.length/2);
+  var yPoint = floor(mapArray[0].length/2);
+  if(mapArray[xPoint][yPoint].z<127){
+    var camHeight = 127+20;
+  }else{
+    var camHeight = mapArray[xPoint][yPoint].z+20;
+  }
+  var camX = mapArray[xPoint][yPoint].xTrue;
+  var camY = mapArray[xPoint][yPoint].yTrue;
+
+  camera(camX, camY, camHeight, 0, 0, camHeight, 0, 0, -1);
 }
 function bottomRightPointCam() {
   camera(canvasSize[0]*1.3, canvasSize[1]*1.3, 370, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 0, -1);
