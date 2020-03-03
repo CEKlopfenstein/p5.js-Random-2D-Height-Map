@@ -289,6 +289,7 @@ function topCamera() {
 }
 function testCamera(path) {
   //frameRate(1);
+  console.log(frameRate());
   var trueFrame = frameCount-startFrame;
   if(trueFrame<path.length-1){
     if(path[trueFrame].z>=127){
