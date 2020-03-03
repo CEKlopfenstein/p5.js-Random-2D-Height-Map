@@ -1,7 +1,7 @@
 //Settings
 var canvasSize = [640,480];
 var mapSize = [100,100];
-var pointCount = 25;
+var pointCount = 4;
 var fallRate = 10;
 var smoothOut = 25;
 var logFile = "Output.txt";
@@ -73,8 +73,8 @@ function draw() {
       //saveToFile(mapArray);
       dataSent = true;
       pathTo = aStar(mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))],mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))]);
+      startFrame = frameCount;
     }
-    startFrame = frameCount;
     panCenterCamera();
     show3dColor();
     drawPath(pathTo);

@@ -323,6 +323,7 @@ function basicPovCamera() {
   noLoop();
 }
 function panCenterCamera() {
+  var trueFrame = frameCount-startFrame+1;
   var xPoint = floor(mapArray.length/2);
   var yPoint = floor(mapArray[0].length/2);
   var lookX = 0;
@@ -341,16 +342,16 @@ function panCenterCamera() {
   var corner3 = parseInt(mapSize[0])+parseInt(mapSize[1])+parseInt(mapSize[0]);
   var corner4 = (parseInt(mapSize[0])+parseInt(mapSize[1]))*2;
 
-  if(frameCount<corner1){
-    lookX = frameCount;
-  }else if (frameCount<corner2) {
+  if(trueFrame<corner1){
+    lookX = trueFrame;
+  }else if (trueFrame<corner2) {
     lookX = mapSize[0]-1;
-    lookY = frameCount-corner1;
-  }else if (frameCount<corner3) {
-    lookX = mapSize[0]-1-(frameCount-corner2);
+    lookY = trueFrame-corner1;
+  }else if (trueFrame<corner3) {
+    lookX = mapSize[0]-1-(trueFrame-corner2);
     lookY = mapSize[1]-1;
-  }else if (frameCount<corner4) {
-    lookY = mapSize[1]-(frameCount-corner3)-1;
+  }else if (trueFrame<corner4) {
+    lookY = mapSize[1]-(trueFrame-corner3)-1;
   }else{
     noLoop();
     console.log("Done");
