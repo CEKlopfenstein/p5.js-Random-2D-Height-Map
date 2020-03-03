@@ -1,1 +1,2 @@
-# Experiments with P5.js in creating random terrain
+# Random Terrain Generation Experiments
+## What is Being Used and Why
