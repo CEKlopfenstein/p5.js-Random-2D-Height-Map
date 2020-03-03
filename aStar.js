@@ -125,16 +125,31 @@ function aStar(start,end) {
   return returnPath;
 }
 function drawPath(path) {
-  stroke(0);
+  stroke(color(252, 165, 3));
   strokeWeight(2);
+  line(path[0].xTrue,path[0].yTrue,path[0].z,path[0].xTrue,path[0].yTrue,255);
+  stroke(color("red"));
+  line(path[path.length-1].xTrue,path[path.length-1].yTrue,path[path.length-1].z,path[path.length-1].xTrue,path[path.length-1].yTrue,255);
+  stroke(0);
   noFill();
-  beginShape();
-  for(var c = 0; c < path.length; c++){
-    if (path[c].z<127) {
-      vertex(path[c].xTrue,path[c].yTrue,127);
+  for(var c = 0; c < path.length-1; c++){
+    if(dist(path[c].x,path[c].y,path[c+1].x,path[c+1].y)>2){
+      stroke(color(3, 252, 252));
     }else{
-      vertex(path[c].xTrue,path[c].yTrue,path[c].z);
+      stroke(0);
+    }
+    if (path[c].z<127) {
+      if (path[c+1].z<127) {
+        line(path[c].xTrue,path[c].yTrue,127,path[c+1].xTrue,path[c+1].yTrue,127);
+      }else{
+        line(path[c].xTrue,path[c].yTrue,127,path[c+1].xTrue,path[c+1].yTrue,path[c+1].z);
+      }
+    }else{
+      if(path[c+1].z>=127){
+        line(path[c].xTrue,path[c].yTrue,path[c].z,path[c+1].xTrue,path[c+1].yTrue,path[c+1].z);
+      }else{
+        line(path[c].xTrue,path[c].yTrue,path[c].z,path[c+1].xTrue,path[c+1].yTrue,127);
+      }
     }
   }
-  endShape();
 }
