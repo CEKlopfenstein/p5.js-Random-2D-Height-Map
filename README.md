@@ -42,12 +42,13 @@ Related Issues:
 
 
 ##### 3dPointfallDemo
-This branch is related to Point-Fall but never be merged with **Point-Fall**. This is as a
-result of this it being just what it says on the tin. It is a demo and was made simply as a
-test and demonstaion. And while it looks ok I would prefer not have to use it all the time.
-It will be used from time to time to see how the map looks in 3D but it will not become the
- main project. This is because I would rather not develop some of the ideas I have for
- [**Point-Fall**](#point-fall) in 3D right off the bat and then have to touble shoot it in 3D.
+This branch is related to Point-Fall but never be merged with
+[**Point-Fall**](#point-fall). This is as a result of this it being just what it says on
+the tin. It is a demo and was made simply as a test and demonstaion. And while it looks ok
+I would prefer not have to use it all the time. It will be used from time to time to see
+how the map looks in 3D but it will not become the main project. This is because I would
+rather not develop some of the ideas I have for [**Point-Fall**](#point-fall) in 3D right
+off the bat and then have to touble shoot it in 3D.
 
  Related Issues:
  1. [3D Demo Plans](https://github.com/CEKlopfenstein/p5.js-Random-2D-Height-Map/issues/9)
