@@ -287,7 +287,8 @@ function topCamera() {
   camera(canvasSize[0]/2, -canvasSize[1]*0.75, 450, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 0, -1);
   noLoop();
 }
-function testCamera() {
+function testCamera(path) {
+  console.log(frameCount-startFrame);
   camera(canvasSize[0]/2, canvasSize[1]/3, 600, canvasSize[0]/2, canvasSize[1]/2, 0, 0, 0, -1);
   noLoop();
 }
@@ -356,4 +357,8 @@ function panCenterCamera() {
   }
 
   camera(camX, camY, camHeight, mapArray[lookX][lookY].xTrue, mapArray[lookX][lookY].yTrue, camHeight, 0, 0, -1);
+}
+function aboveCamera() {
+  camera(canvasSize[0]/2, canvasSize[1]/3, 600, canvasSize[0]/2, canvasSize[1]/2, 0, 0, 0, -1);
+  noLoop();
 }

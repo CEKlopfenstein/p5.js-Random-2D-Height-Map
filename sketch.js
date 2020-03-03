@@ -30,6 +30,7 @@ var offSets = [mapSize[0]*100,mapSize[1]*100];
 var dataSent = false;
 var testTick = 0;
 var progressDisplay;
+var pathTo;
 
 function preload() {
   inputFile = loadStrings("mapTest.txt");
@@ -71,9 +72,10 @@ function draw() {
       //trueLogger(finalData);
       //saveToFile(mapArray);
       dataSent = true;
+      pathTo = aStar(mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))],mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))]);
     }
-    var pathTo = aStar(mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))],mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))]);
-    testCamera();
+    startFrame = frameCount;
+    panCenterCamera();
     show3dColor();
     drawPath(pathTo);
   }else if(!firstDraw){
