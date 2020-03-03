@@ -288,8 +288,6 @@ function topCamera() {
   noLoop();
 }
 function testCamera(path) {
-  //frameRate(1);
-  console.log(frameRate());
   var trueFrame = frameCount-startFrame;
   if(trueFrame<path.length-1){
     if(path[trueFrame].z>=127){
@@ -380,4 +378,25 @@ function panCenterCamera() {
 function aboveCamera() {
   camera(canvasSize[0]/2, canvasSize[1]/3, 600, canvasSize[0]/2, canvasSize[1]/2, 0, 0, 0, -1);
   noLoop();
+}
+function pathCam(path) {
+  var trueFrame = frameCount-startFrame;
+  if(trueFrame<path.length-1){
+    if(path[trueFrame].z>=127){
+      if(path[trueFrame+1].z>=127){
+        camera(path[trueFrame].xTrue, path[trueFrame].yTrue, path[trueFrame].z+20, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, path[trueFrame+1].z+20, 0, 0, -1);
+      }else{
+        camera(path[trueFrame].xTrue, path[trueFrame].yTrue, path[trueFrame].z+20, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, 147, 0, 0, -1);
+      }
+    }else{
+      if(path[trueFrame+1].z<127){
+        camera(path[trueFrame].xTrue, path[trueFrame].yTrue, 147, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, 147, 0, 0, -1);
+      }else{
+        camera(path[trueFrame].xTrue, path[trueFrame].yTrue, 147, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, path[trueFrame+1].z+20, 0, 0, -1);
+      }
+    }
+  }else{
+    aboveCamera();
+    noLoop();
+  }
 }
