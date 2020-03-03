@@ -18,7 +18,7 @@ neigboring points to the high points to a lower value. Repeating this process un
 hit the lower limit. Giving you your height map. Point-Fall acts as the master branch of
 this generation idea. With a few relating branches. [Plans for **Point-Fall**.](https://github.com/CEKlopfenstein/p5.js-Random-2D-Height-Map/issues/8)
 ##### Speed-Opt
-This branch is related to **Point-Fall** and was used as a testing ground to find faster ways
+This branch is related to [**Point-Fall**](#point-fall) and was used as a testing ground to find faster ways
 of generating the height values in same general way as Point-Fall.
 
 Branches that are off of Speed-Opt are:
@@ -34,7 +34,7 @@ Related Issues:
 2. [Block it out.](https://github.com/CEKlopfenstein/p5.js-Random-2D-Height-Map/issues/2)
 
 ##### Color-Test
-This branch is also related to **Point-Fall** and was a testing ground for what colors where
+This branch is also related to [**Point-Fall**](#point-fall) and was a testing ground for what colors where
 used in the 2D map. Nothing more nothing less. Was later merged. Though it may be used again for more testing.
 
 Related Issues:
@@ -47,7 +47,7 @@ result of this it being just what it says on the tin. It is a demo and was made 
 test and demonstaion. And while it looks ok I would prefer not have to use it all the time.
 It will be used from time to time to see how the map looks in 3D but it will not become the
  main project. This is because I would rather not develop some of the ideas I have for
- **Point-Fall** in 3D right off the bat and then have to touble shoot it in 3D.
+ [**Point-Fall**](#point-fall) in 3D right off the bat and then have to touble shoot it in 3D.
 
  Related Issues:
  1. [3D Demo Plans](https://github.com/CEKlopfenstein/p5.js-Random-2D-Height-Map/issues/9)
