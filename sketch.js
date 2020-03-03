@@ -72,8 +72,10 @@ function draw() {
       //saveToFile(mapArray);
       dataSent = true;
     }
-    panCenterCamera();
+    var pathTo = aStar(mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))],mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))]);
+    testCamera();
     show3dColor();
+    drawPath(pathTo);
   }else if(!firstDraw){
     initDraw();
     firstDraw = true;

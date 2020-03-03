@@ -10,7 +10,11 @@ function Cell(xCord, yCord, xDem, yDem){
   this.neighbors = [];
   this.zChange = 0;
 
-  //Initialization
+  //Values for Pathfinding
+  this.f = 0;
+  this.g = 0;
+  this.h = 0;
+  this.cameFrom;
 
   //Functions
   this.show = function(col) {

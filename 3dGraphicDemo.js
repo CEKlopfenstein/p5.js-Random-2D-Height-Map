@@ -288,39 +288,8 @@ function topCamera() {
   noLoop();
 }
 function testCamera() {
-  var xPoint = floor(mapArray.length/2);
-  var yPoint = floor(mapArray[0].length/2);
-  var lookX = 0;
-  var lookY = 0;
-
-  if(mapArray[xPoint][yPoint].z<127){
-    var camHeight = 127+20;
-  }else{
-    var camHeight = mapArray[xPoint][yPoint].z+20;
-  }
-  var camX = mapArray[xPoint][yPoint].xTrue;
-  var camY = mapArray[xPoint][yPoint].yTrue;
-
-  var corner1 = mapSize[0];
-  var corner2 = parseInt(mapSize[0])+parseInt(mapSize[1]);
-  var corner3 = parseInt(mapSize[0])+parseInt(mapSize[1])+parseInt(mapSize[0]);
-  var corner4 = (parseInt(mapSize[0])+parseInt(mapSize[1]))*2;
-
-  if(frameCount<corner1){
-    lookX = frameCount;
-  }else if (frameCount<corner2) {
-    lookX = mapSize[0]-1;
-    lookY = frameCount-corner1;
-  }else if (frameCount<corner3) {
-    lookX = mapSize[0]-1-(frameCount-corner2);
-    lookY = mapSize[1]-1;
-  }else if (frameCount<corner4) {
-    lookY = mapSize[1]-(frameCount-corner3)-1;
-  }else{
-    noLoop();
-  }
-
-  camera(camX, camY, camHeight, mapArray[lookX][lookY].xTrue, mapArray[lookX][lookY].yTrue, camHeight, 0, 0, -1);
+  camera(canvasSize[0]/2, canvasSize[1]/3, 600, canvasSize[0]/2, canvasSize[1]/2, 0, 0, 0, -1);
+  noLoop();
 }
 function bottomRightPointCam() {
   camera(canvasSize[0]*1.3, canvasSize[1]*1.3, 370, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 0, -1);
