@@ -16,7 +16,7 @@ This is my current project. The idea is that you have a 2D array of heights. You
 number of these scattered around the map and set them to the max height. Then you set all
 neigboring points to the high points to a lower value. Repeating this process until they
 hit the lower limit. Giving you your height map. Point-Fall acts as the master branch of
-this generation idea. With a few relating branches. [Plans](https://github.com/CEKlopfenstein/p5.js-Random-2D-Height-Map/issues/8)
+this generation idea. With a few relating branches. [Plans for **Point-Fall**.](https://github.com/CEKlopfenstein/p5.js-Random-2D-Height-Map/issues/8)
 ##### Speed-Opt
 This branch is related to **Point-Fall** and was used as a testing ground to find faster ways
 of generating the height values in same general way as Point-Fall.
