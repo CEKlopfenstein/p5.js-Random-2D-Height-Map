@@ -29,12 +29,16 @@ Branches that are off of Speed-Opt are:
 3. **topToBottom**
    - The idea with this one was to set the heights one level at a time. So first we would loop though and set the max heights and record where the next changes would happen. Repeating the process until the lowest height was reached. While it did have more consistent timings then blockOut and the original way it took far longer. Doubling the time it took for simple maps to be made and exponsionally increasing from there. So it was abandoned.
 
+Related Issues:
+1. [Top to Bottom](#3)
+2. [Block it out.](#2)
+
 ##### Color-Test
 This branch is also related to **Point-Fall** and was a testing ground for what colors where
-used in the 2D map. Nothing more nothing less. Was later merged.
+used in the 2D map. Nothing more nothing less. Was later merged. Though it may be used again for more testing.
 
 Related Issues:
-1. [Test](#8)
+1. [Color Idea for Later](#4)
 
 
 ##### 3dPointfallDemo
@@ -44,3 +48,6 @@ test and demonstaion. And while it looks ok I would prefer not have to use it al
 It will be used from time to time to see how the map looks in 3D but it will not become the
  main project. This is because I would rather not develop some of the ideas I have for
  **Point-Fall** in 3D right off the bat and then have to touble shoot it in 3D.
+
+ Related Issues:
+ 1. [3D Demo Plans](#9)
