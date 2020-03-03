@@ -75,7 +75,7 @@ function draw() {
       pathTo = aStar(mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))],mapArray[floor(random(mapSize[0]))][floor(random(mapSize[1]))]);
       startFrame = frameCount;
     }
-    panCenterCamera();
+    testCamera(pathTo);
     show3dColor();
     drawPath(pathTo);
   }else if(!firstDraw){

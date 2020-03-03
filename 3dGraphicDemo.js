@@ -288,9 +288,18 @@ function topCamera() {
   noLoop();
 }
 function testCamera(path) {
-  console.log(frameCount-startFrame);
-  camera(canvasSize[0]/2, canvasSize[1]/3, 600, canvasSize[0]/2, canvasSize[1]/2, 0, 0, 0, -1);
-  noLoop();
+  frameRate(1)
+  var trueFrame = frameCount-startFrame;
+  if(trueFrame<path.length-1){
+    if(path[trueFrame]>127){
+      camera(path[trueFrame].xTrue, path[trueFrame].yTrue, path[trueFrame].z+20, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, path[trueFrame].z+20, 0, 0, -1);
+    }else{
+      camera(path[trueFrame].xTrue, path[trueFrame].yTrue, 147, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, 147, 0, 0, -1);
+    }
+  }else{
+    aboveCamera();
+    noLoop();
+  }
 }
 function bottomRightPointCam() {
   camera(canvasSize[0]*1.3, canvasSize[1]*1.3, 370, canvasSize[0]/2, canvasSize[1]/2, highestPoint/2, 0, 0, -1);
