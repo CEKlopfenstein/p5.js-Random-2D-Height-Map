@@ -290,12 +290,19 @@ function topCamera() {
 function testCamera(path) {
   //frameRate(1);
   var trueFrame = frameCount-startFrame;
-  console.log(path[trueFrame].z);
   if(trueFrame<path.length-1){
     if(path[trueFrame].z>=127){
-      camera(path[trueFrame].xTrue, path[trueFrame].yTrue, path[trueFrame].z+20, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, path[trueFrame].z+20, 0, 0, -1);
+      if(path[trueFrame+1].z>=127){
+        camera(path[trueFrame].xTrue, path[trueFrame].yTrue, path[trueFrame].z+20, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, path[trueFrame+1].z+20, 0, 0, -1);
+      }else{
+        camera(path[trueFrame].xTrue, path[trueFrame].yTrue, path[trueFrame].z+20, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, 147, 0, 0, -1);
+      }
     }else{
-      camera(path[trueFrame].xTrue, path[trueFrame].yTrue, 147, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, 147, 0, 0, -1);
+      if(path[trueFrame+1].z<127){
+        camera(path[trueFrame].xTrue, path[trueFrame].yTrue, 147, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, 147, 0, 0, -1);
+      }else{
+        camera(path[trueFrame].xTrue, path[trueFrame].yTrue, 147, path[trueFrame+1].xTrue, path[trueFrame+1].yTrue, path[trueFrame+1].z+20, 0, 0, -1);
+      }
     }
   }else{
     aboveCamera();
