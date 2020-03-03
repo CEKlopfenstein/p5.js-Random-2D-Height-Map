@@ -52,3 +52,21 @@ off the bat and then have to touble shoot it in 3D.
 
  Related Issues:
  1. [3D Demo Plans](https://github.com/CEKlopfenstein/p5.js-Random-2D-Height-Map/issues/9)
+
+
+## Plans
+If I'm honest I have no real plans to do anything with this. It is currently just something
+I work on while I'm bored or have an idea.
+
+## Credits
+Some of the material that I have been using and why.
+- https://blog.habrador.com/2013/02/how-to-generate-random-terrain.html
+  - For ideas I want to try later.
+- https://dxprog.com/files/randmaps.html
+  - Not sure about whether I like his idea of terrain generation but it worked well for smoothing in [**Point-Fall**](#point-fall).
+- [The Coding Train](https://www.youtube.com/user/shiffman/featured)
+  - Used his videos to better understand A*
+    - [Part 1](https://youtu.be/aKYlikFAV4k)
+    - [Part 2](https://youtu.be/EaZxUCWAjb0)
+    - [Part 3](https://youtu.be/jwRT4PCT6RU)
+  - Also used quite a few of his videos on P5.js in general and using WebGL
