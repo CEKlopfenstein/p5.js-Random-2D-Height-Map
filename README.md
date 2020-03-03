@@ -70,3 +70,8 @@ Some of the material that I have been using and why.
     - [Part 2](https://youtu.be/EaZxUCWAjb0)
     - [Part 3](https://youtu.be/jwRT4PCT6RU)
   - Also used quite a few of his videos on P5.js in general and using WebGL
+
+## Use of Code
+I honestly don't really care if you use this code. But if you do and make it public atleast
+give credit where credit is due. I can not promise that this code will run bug free. Nor
+will I ever claim this Repo will be bug free. This is really just a hobby project.
