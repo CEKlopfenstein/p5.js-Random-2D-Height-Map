@@ -56,7 +56,7 @@ function draw() {
       highestPoint = highPointFind(mapArray);
       lowestPoint = lowPointFind(mapArray);
       console.log(finalData+"\n"+highestPoint+"\n"+lowestPoint);
-      trueLogger(finalData);
+      //trueLogger(finalData);
       //saveToFile(mapArray);
       dataSent = true;
     }
