@@ -87,17 +87,19 @@ function smoothMap() {
 //River Generation
 function riverGen() {
   //Pick Starting points of rivers and add them to array
-  for(var c = 0; c < riverStarts; c++){
+  var c = 0;
+  while(c < riverStarts){
     var pickX = floor(random(mapSize[0]));
     var pickY = floor(random(mapSize[1]));
     if(mapArray[pickX][pickY].z>127){
       riversArray.push([mapArray[pickX][pickY]]);
+      c++;
     }
   }
 
   for(var c = 0; c < riversArray.length; c++){
     var c1 = riversArray[c].length-1;
-    while(c1 < riversArray[c].length && riversArray[c][c1].z >= 127){
+    while(c1 < riversArray[c].length && riversArray[c][c1].z > 127){
       //Find lowestPoint to go to next
       var low = 0;
       for(var n = 0; n < riversArray[c][c1].neighbors.length; n++){
@@ -107,12 +109,6 @@ function riverGen() {
       }
       if(riversArray[c][c1].z>riversArray[c][c1].neighbors[low].z){
         riversArray[c].push(riversArray[c][c1].neighbors[low]);
-        //Check for other points equal to the lowestPoint
-        for(var n = 0; n < riversArray[c][c1].neighbors.length; n++){
-          if(riversArray[c][c1].neighbors[n].z == riversArray[c][c1].neighbors[low].z && n != low && riversArray[c][c1].z > riversArray[c][c1].neighbors[n].z){
-            riversArray.push([riversArray[c][c1],riversArray[c][c1].neighbors[n]]);
-          }
-        }
       }
       c1++;
     }
@@ -130,7 +126,7 @@ function tempRiverShow() {
       console.log(t);
       beginShape();
       for(var c = 0; c < riversArray[t].length; c++){
-        vertex(riversArray[t][c].xTrue-riversArray[t][c].width/2,riversArray[t][c].yTrue-riversArray[t][c].height/2);
+        vertex(riversArray[t][c].xTrue+riversArray[t][c].width/2,riversArray[t][c].yTrue+riversArray[t][c].height/2);
       }
       endShape();
     }
