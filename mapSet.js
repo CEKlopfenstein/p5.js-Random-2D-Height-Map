@@ -107,7 +107,7 @@ function riverGen() {
           low = n;
         }
       }
-      if(riversArray[c][c1].z>riversArray[c][c1].neighbors[low].z){
+      if(riversArray[c][c1].z >= riversArray[c][c1].neighbors[low].z){
         riversArray[c].push(riversArray[c][c1].neighbors[low]);
       }
       c1++;
@@ -122,8 +122,11 @@ function tempRiverShow() {
   noFill();
   console.log(riversArray);
   for(var t = 0; t < riversArray.length; t++){
-    if(riversArray[t].length>2){
+    if(riversArray[t].length>1){
       console.log(t);
+      fill(color("blue"));
+      circle(riversArray[t][0].xTrue+riversArray[t][0].width/2,riversArray[t][0].yTrue+riversArray[t][0].height/2,(riversArray[t][0].height+riversArray[t][0].width)/4);
+      noFill();
       beginShape();
       for(var c = 0; c < riversArray[t].length; c++){
         vertex(riversArray[t][c].xTrue+riversArray[t][c].width/2,riversArray[t][c].yTrue+riversArray[t][c].height/2);
