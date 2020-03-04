@@ -83,3 +83,8 @@ function smoothMap() {
     }
   }
 }
+
+//River Generation
+function riverGen() {
+  
+}

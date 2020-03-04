@@ -3,11 +3,13 @@ var canvasSize = [640,480];
 var mapSize = [100,100];
 var pointCount = 20;
 var fallRate = 10;
+var riverStarts = 10;
 var smoothOut = 25;
 var logFile = "Output.txt";
 
 //Global variables
 var mapArray = [];
+var riversArray = [];
 var cellDem = [canvasSize[0]/mapSize[0],canvasSize[1]/mapSize[1]];
 var genComplete = false;
 var genStage1 = false;
