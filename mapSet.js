@@ -97,7 +97,7 @@ function riverGen() {
 
   for(var c = 0; c < riversArray.length; c++){
     var c1 = riversArray[c].length-1;
-    while(riversArray[c][c1].z >= 127){
+    while(c1 < riversArray[c].length && riversArray[c][c1].z >= 127){
       //Find lowestPoint to go to next
       var low = 0;
       for(var n = 0; n < riversArray[c][c1].neighbors.length; n++){
@@ -124,12 +124,15 @@ function tempRiverShow() {
   stroke(color("blue"));
   strokeWeight(1.5);
   noFill();
+  console.log(riversArray);
   for(var t = 0; t < riversArray.length; t++){
-    console.log(t);
-    beginShape();
-    for(var c = 0; c < riversArray[t].length; c++){
-      vertex(riversArray[t][c].xTrue-riversArray[t][c].width/2,riversArray[t][c].yTrue-riversArray[t][c].height/2);
+    if(riversArray[t].length>2){
+      console.log(t);
+      beginShape();
+      for(var c = 0; c < riversArray[t].length; c++){
+        vertex(riversArray[t][c].xTrue-riversArray[t][c].width/2,riversArray[t][c].yTrue-riversArray[t][c].height/2);
+      }
+      endShape();
     }
-    endShape();
   }
 }
