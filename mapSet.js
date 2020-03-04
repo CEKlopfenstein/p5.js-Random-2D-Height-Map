@@ -129,6 +129,34 @@ function tempRiverShow() {
       noFill();
       beginShape();
       for(var c = 0; c < riversArray[t].length; c++){
+        if (c > 0 && dist(riversArray[t][c].x,riversArray[t][c].y,riversArray[t][c-1].x,riversArray[t][c-1].y)>2) {//Check if the distence between two points is greater than it should be.
+          if(riversArray[t][c].x-riversArray[t][c-1].x == 0){//Determine in what direction the river makes the jump Up/Down or Left/Right
+            if(riversArray[t][c-1].y == 0){//Determine if it is jumping Up or Down
+              //Make the splice
+              vertex(riversArray[t][c-1].xTrue+riversArray[t][c-1].width/2,riversArray[t][c-1].yTrue);
+              endShape();
+              beginShape();
+              vertex(riversArray[t][c].xTrue+riversArray[t][c].width/2,riversArray[t][c].yTrue+riversArray[t][c].height);
+            }else{
+              vertex(riversArray[t][c-1].xTrue+riversArray[t][c-1].width/2,riversArray[t][c-1].yTrue+riversArray[t][c-1].height);
+              endShape();
+              beginShape();
+              vertex(riversArray[t][c].xTrue+riversArray[t][c].width/2,riversArray[t][c].yTrue);
+            }
+          }else{
+            if(riversArray[t][c-1].x == 0){//Determine if its jumping Left or Right
+              vertex(riversArray[t][c-1].xTrue,riversArray[t][c-1].yTrue+riversArray[t][c-1].height/2);
+              endShape();
+              beginShape();
+              vertex(riversArray[t][c].xTrue+riversArray[t][c].width,riversArray[t][c].yTrue+riversArray[t][c].height/2);
+            }else{
+              vertex(riversArray[t][c-1].xTrue+riversArray[t][c-1].width,riversArray[t][c-1].yTrue+riversArray[t][c-1].height/2);
+              endShape();
+              beginShape();
+              vertex(riversArray[t][c].xTrue,riversArray[t][c].yTrue+riversArray[t][c].height/2);
+            }
+          }
+        }
         vertex(riversArray[t][c].xTrue+riversArray[t][c].width/2,riversArray[t][c].yTrue+riversArray[t][c].height/2);
       }
       endShape();
