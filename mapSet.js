@@ -109,6 +109,12 @@ function riverGen() {
       }
       if(riversArray[c][c1].z >= riversArray[c][c1].neighbors[low].z){
         riversArray[c].push(riversArray[c][c1].neighbors[low]);
+        //Check for other points equal to the lowestPoint.
+       for(var n = 0; n < riversArray[c][c1].neighbors.length; n++){
+         if(riversArray[c][c1].neighbors[n].z == riversArray[c][c1].neighbors[low].z && n != low && riversArray[c][c1].z > riversArray[c][c1].neighbors[n].z){
+           riversArray.push([riversArray[c][c1],riversArray[c][c1].neighbors[n]]);
+         }
+       }
       }
       c1++;
     }
@@ -123,7 +129,6 @@ function tempRiverShow() {
   console.log(riversArray);
   for(var t = 0; t < riversArray.length; t++){
     if(riversArray[t].length>1){
-      console.log(t);
       fill(color("blue"));
       circle(riversArray[t][0].xTrue+riversArray[t][0].width/2,riversArray[t][0].yTrue+riversArray[t][0].height/2,(riversArray[t][0].height+riversArray[t][0].width)/4);
       noFill();
