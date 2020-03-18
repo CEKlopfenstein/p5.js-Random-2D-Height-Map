@@ -92,84 +92,15 @@ function riverGen() {
     var pickX = floor(random(mapSize[0]));
     var pickY = floor(random(mapSize[1]));
     if(mapArray[pickX][pickY].z>127){
-      riversArray.push([mapArray[pickX][pickY]]);
-      var riverTest = new River(pickX,pickY);
-      riverTest.generateFlow();
-      riverTest.show();
-      console.log("#"+c,riverTest.riverPath);
+      riversArray.push(new River(pickX,pickY));
+      riversArray[c].generateFlow();
       c++;
     }
-  }
-
-  for(var c = 0; c < riversArray.length; c++){
-    var c1 = riversArray[c].length-1;
-    while(c1 < riversArray[c].length && riversArray[c][c1].z > 127){
-      //Find lowestPoint to go to next
-      var low = 0;
-      for(var n = 0; n < riversArray[c][c1].neighbors.length; n++){
-        if(riversArray[c][c1].neighbors[n].z < riversArray[c][c1].neighbors[low].z){
-          low = n;
-        }
-      }
-      if(riversArray[c][c1].z >= riversArray[c][c1].neighbors[low].z){
-        riversArray[c].push(riversArray[c][c1].neighbors[low]);
-        //Check for other points equal to the lowestPoint.
-       for(var n = 0; n < riversArray[c][c1].neighbors.length; n++){
-         if(riversArray[c][c1].neighbors[n].z == riversArray[c][c1].neighbors[low].z && n != low && riversArray[c][c1].z > riversArray[c][c1].neighbors[n].z){
-           riversArray.push([riversArray[c][c1],riversArray[c][c1].neighbors[n]]);
-         }
-       }
-      }
-      c1++;
-    }
-    console.log("#"+c,riversArray[c]);
   }
 }
 
 function tempRiverShow() {
-  console.log(riversArray.length);
-  stroke(color("blue"));
-  strokeWeight(1.5);
-  noFill();
-  console.log(riversArray);
-  for(var t = 0; t < riversArray.length; t++){
-    if(riversArray[t].length>1){
-      fill(color("blue"));
-      circle(riversArray[t][0].xTrue+riversArray[t][0].width/2,riversArray[t][0].yTrue+riversArray[t][0].height/2,(riversArray[t][0].height+riversArray[t][0].width)/4);
-      noFill();
-      beginShape();
-      for(var c = 0; c < riversArray[t].length; c++){
-        if (c > 0 && dist(riversArray[t][c].x,riversArray[t][c].y,riversArray[t][c-1].x,riversArray[t][c-1].y)>2) {//Check if the distence between two points is greater than it should be.
-          if(riversArray[t][c].x-riversArray[t][c-1].x == 0){//Determine in what direction the river makes the jump Up/Down or Left/Right
-            if(riversArray[t][c-1].y == 0){//Determine if it is jumping Up or Down
-              //Make the splice
-              vertex(riversArray[t][c-1].xTrue+riversArray[t][c-1].width/2,riversArray[t][c-1].yTrue);
-              endShape();
-              beginShape();
-              vertex(riversArray[t][c].xTrue+riversArray[t][c].width/2,riversArray[t][c].yTrue+riversArray[t][c].height);
-            }else{
-              vertex(riversArray[t][c-1].xTrue+riversArray[t][c-1].width/2,riversArray[t][c-1].yTrue+riversArray[t][c-1].height);
-              endShape();
-              beginShape();
-              vertex(riversArray[t][c].xTrue+riversArray[t][c].width/2,riversArray[t][c].yTrue);
-            }
-          }else{
-            if(riversArray[t][c-1].x == 0){//Determine if its jumping Left or Right
-              vertex(riversArray[t][c-1].xTrue,riversArray[t][c-1].yTrue+riversArray[t][c-1].height/2);
-              endShape();
-              beginShape();
-              vertex(riversArray[t][c].xTrue+riversArray[t][c].width,riversArray[t][c].yTrue+riversArray[t][c].height/2);
-            }else{
-              vertex(riversArray[t][c-1].xTrue+riversArray[t][c-1].width,riversArray[t][c-1].yTrue+riversArray[t][c-1].height/2);
-              endShape();
-              beginShape();
-              vertex(riversArray[t][c].xTrue,riversArray[t][c].yTrue+riversArray[t][c].height/2);
-            }
-          }
-        }
-        vertex(riversArray[t][c].xTrue+riversArray[t][c].width/2,riversArray[t][c].yTrue+riversArray[t][c].height/2);
-      }
-      endShape();
-    }
+  for(var c = 0; c < riversArray.length; c++){
+    riversArray[c].show();
   }
 }

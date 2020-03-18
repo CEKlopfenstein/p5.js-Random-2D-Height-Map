@@ -29,14 +29,12 @@ function River(startX, startY){
   }
 
   this.show = function(){
-    console.log(this.riverPath.length);
-    stroke(color("green"));
+    stroke(color("blue"));
     strokeWeight(1.5);
     noFill();
-    console.log(this.riverPath);
     for(var t = 0; t < this.riverPath.length; t++){
       if(this.riverPath[t].length>1){
-        fill(color("green"));
+        fill(color("blue"));
         circle(this.riverPath[t][0].xTrue+this.riverPath[t][0].width/2,this.riverPath[t][0].yTrue+this.riverPath[t][0].height/2,(this.riverPath[t][0].height+this.riverPath[t][0].width)/4);
         noFill();
         beginShape();
