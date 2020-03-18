@@ -93,6 +93,10 @@ function riverGen() {
     var pickY = floor(random(mapSize[1]));
     if(mapArray[pickX][pickY].z>127){
       riversArray.push([mapArray[pickX][pickY]]);
+      var riverTest = new River(pickX,pickY);
+      riverTest.generateFlow();
+      riverTest.show();
+      console.log("#"+c,riverTest.riverPath);
       c++;
     }
   }
@@ -118,6 +122,7 @@ function riverGen() {
       }
       c1++;
     }
+    console.log("#"+c,riversArray[c]);
   }
 }
 
