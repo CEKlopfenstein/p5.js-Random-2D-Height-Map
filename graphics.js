@@ -181,3 +181,10 @@ function testColor3(point) {
   This looks good but I want to see what it looks like when I change the sea level
   */
 }
+
+//Graphical function to show all rivers.
+function riverShow() {
+  for(var c = 0; c < riversArray.length; c++){
+    riversArray[c].show();
+  }
+}

@@ -64,7 +64,7 @@ function draw() {
       dataSent = true;
     }
     graphic(offSets[0],offSets[1]);
-    tempRiverShow();
+    riverShow();
     noLoop();
   }else if(!firstDraw){
     colorTest();

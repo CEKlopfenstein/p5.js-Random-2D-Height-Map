@@ -98,9 +98,3 @@ function riverGen() {
     }
   }
 }
-
-function tempRiverShow() {
-  for(var c = 0; c < riversArray.length; c++){
-    riversArray[c].show();
-  }
-}
