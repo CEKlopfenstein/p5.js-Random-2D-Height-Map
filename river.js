@@ -4,21 +4,19 @@ function River(startX, startY){
   this.riverPath = [[mapArray[this.x][this.y]]];
 
   this.generateMainFlow = function() {
-    for(var c = 0; c < this.riverPath.length; c++){
-      var c1 = this.riverPath[c].length-1;
-      while(c1 < this.riverPath[c].length && this.riverPath[c][c1].z > 127){
-        //Find lowestPoint to go to next
-        var low = 0;
-        for(var n = 0; n < this.riverPath[c][c1].neighbors.length; n++){
-          if(this.riverPath[c][c1].neighbors[n].z < this.riverPath[c][c1].neighbors[low].z){
-            low = n;
-          }
+    var c1 = this.riverPath[0].length-1;
+    while(c1 < this.riverPath[0].length && this.riverPath[0][c1].z > 127){
+      //Find lowestPoint to go to next
+      var low = 0;
+      for(var n = 0; n < this.riverPath[0][c1].neighbors.length; n++){
+        if(this.riverPath[0][c1].neighbors[n].z < this.riverPath[0][c1].neighbors[low].z){
+          low = n;
         }
-        if(this.riverPath[c][c1].z >= this.riverPath[c][c1].neighbors[low].z){
-          this.riverPath[c].push(this.riverPath[c][c1].neighbors[low]);
-        }
-        c1++;
       }
+      if(this.riverPath[0][c1].z >= this.riverPath[0][c1].neighbors[low].z){
+        this.riverPath[0].push(this.riverPath[0][c1].neighbors[low]);
+      }
+      c1++;
     }
   }
 
