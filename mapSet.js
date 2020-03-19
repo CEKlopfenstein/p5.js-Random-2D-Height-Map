@@ -93,7 +93,7 @@ function riverGen() {
     var pickY = floor(random(mapSize[1]));
     if(mapArray[pickX][pickY].z>127){
       riversArray.push(new River(pickX,pickY));
-      riversArray[c].generateFlow();
+      riversArray[c].generateMainFlow();
       c++;
     }
   }

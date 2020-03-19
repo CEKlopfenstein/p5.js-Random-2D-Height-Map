@@ -3,7 +3,7 @@ function River(startX, startY){
   this.y = startY;
   this.riverPath = [[mapArray[this.x][this.y]]];
 
-  this.generateFlow = function() {
+  this.generateMainFlow = function() {
     for(var c = 0; c < this.riverPath.length; c++){
       var c1 = this.riverPath[c].length-1;
       while(c1 < this.riverPath[c].length && this.riverPath[c][c1].z > 127){
@@ -16,12 +16,6 @@ function River(startX, startY){
         }
         if(this.riverPath[c][c1].z >= this.riverPath[c][c1].neighbors[low].z){
           this.riverPath[c].push(this.riverPath[c][c1].neighbors[low]);
-          //Check for other points equal to the lowestPoint.
-         for(var n = 0; n < this.riverPath[c][c1].neighbors.length; n++){
-           if(this.riverPath[c][c1].neighbors[n].z == this.riverPath[c][c1].neighbors[low].z && n != low && this.riverPath[c][c1].z > this.riverPath[c][c1].neighbors[n].z){
-             this.riverPath.push([this.riverPath[c][c1],this.riverPath[c][c1].neighbors[n]]);
-           }
-         }
         }
         c1++;
       }
@@ -30,13 +24,12 @@ function River(startX, startY){
 
   this.show = function(){
     stroke(color("blue"));
+    fill(color("blue"));
+    circle(this.riverPath[0][0].xTrue+this.riverPath[0][0].width/2,this.riverPath[0][0].yTrue+this.riverPath[0][0].height/2,(this.riverPath[0][0].height+this.riverPath[0][0].width)/3);
     strokeWeight(1.5);
     noFill();
     for(var t = 0; t < this.riverPath.length; t++){
       if(this.riverPath[t].length>1){
-        fill(color("blue"));
-        circle(this.riverPath[t][0].xTrue+this.riverPath[t][0].width/2,this.riverPath[t][0].yTrue+this.riverPath[t][0].height/2,(this.riverPath[t][0].height+this.riverPath[t][0].width)/4);
-        noFill();
         beginShape();
         for(var c = 0; c < this.riverPath[t].length; c++){
           if (c > 0 && dist(this.riverPath[t][c].x,this.riverPath[t][c].y,this.riverPath[t][c-1].x,this.riverPath[t][c-1].y)>2) {//Check if the distence between two points is greater than it should be.
