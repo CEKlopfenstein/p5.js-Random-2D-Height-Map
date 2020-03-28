@@ -30,7 +30,7 @@ function River(startX, startY){
       if(abs(this.riverPath[0][c].z - this.riverPath[0][c+1].z) <= riverSplit){
         //Set flag
         goodBranch = true;
-        console.log("Branch");
+        console.log("\tBranch");
 
         //Set test start
         tempBranch = [this.riverPath[0][c]];
@@ -44,13 +44,11 @@ function River(startX, startY){
               low = n;
             }
           }
-          console.log("\tLow: "+low);
 
           //Make sure the next point is lower or equal. if not fail.
           if(tempBranch[c1].neighbors[low].z <= tempBranch[c1].z && tempBranch[c1].neighbors[low] !== this.riverPath[0][c+1]){
             tempBranch.push(tempBranch[c1].neighbors[low]);
           }else{
-            console.log("\tStop");
             goodBranch = false;
             break;
           }
@@ -69,9 +67,16 @@ function River(startX, startY){
 
         //If still good then complete generation
         if(goodBranch){
-          console.log("Yes");
+          console.log("\t\tYes");
+          for (var i = 0; i < tempBranch.length; i++) {
+            if(i==0){
+              this.riverPath.push([tempBranch[i]]);
+            }else{
+              this.riverPath[this.riverPath.length-1].push(tempBranch[i]);
+            }
+          }
         }else {
-          console.log("No");
+          console.log("\t\tNo");
         }
 
       }
