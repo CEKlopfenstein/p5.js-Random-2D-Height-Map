@@ -21,15 +21,15 @@ function River(startX, startY){
   }
 
   this.branchOff = function(){
-    console.log("River Start\n\tRiver length: "+this.riverPath[0].length);
     var count = 0;
     for(var c = 0; c < this.riverPath[0].length - 1; c++){
-      console.log("\t"+abs(this.riverPath[0][c].z - this.riverPath[0][c+1].z));
-      if(abs(this.riverPath[0][c].z - this.riverPath[0][c+1].z) <= 0){
+      if(abs(this.riverPath[0][c].z - this.riverPath[0][c+1].z) <= riverSplit){
         count++;
       }
     }
-    console.log("\tBreak Count: "+count+"\nRiver Ends");
+    if(count>0){
+      console.log("Length: "+this.riverPath[0].length+" Break Count: "+count);
+    }
   }
 
   this.show = function(){
