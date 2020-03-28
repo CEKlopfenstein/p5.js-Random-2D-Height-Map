@@ -22,9 +22,58 @@ function River(startX, startY){
 
   this.branchOff = function(){
     var count = 0;
+    var tempBranch = [];
+    var goodBranch = false;
+    console.log("New");
+
     for(var c = 0; c < this.riverPath[0].length - 1; c++){
       if(abs(this.riverPath[0][c].z - this.riverPath[0][c+1].z) <= riverSplit){
-        count++;
+        //Set flag
+        goodBranch = true;
+        console.log("Branch");
+
+        //Set test start
+        tempBranch = [this.riverPath[0][c]];
+
+        //Start looping test
+        for(var c1 = 0; c1 < 3; c1++){
+          //Find lowest that is not
+          var low = 0;
+          for(var n = 0; n < tempBranch[c1].neighbors.length; n++){
+            if(tempBranch[c1].neighbors[n] !== this.riverPath[0][c+1] && tempBranch[c1].neighbors[n].z <= tempBranch[c1].z && tempBranch[c1].neighbors[n].z < tempBranch[c1].neighbors[low].z){
+              low = n;
+            }
+          }
+          console.log("\tLow: "+low);
+
+          //Make sure the next point is lower or equal. if not fail.
+          if(tempBranch[c1].neighbors[low].z <= tempBranch[c1].z && tempBranch[c1].neighbors[low] !== this.riverPath[0][c+1]){
+            tempBranch.push(tempBranch[c1].neighbors[low]);
+          }else{
+            console.log("\tStop");
+            goodBranch = false;
+            break;
+          }
+        }
+
+        //If first number of points are good test again
+        if(goodBranch){
+          for(var main = 0; main < this.riverPath[0].length && goodBranch; main++){
+            for(var test = 1; test < tempBranch.length && goodBranch; test++){
+              if(this.riverPath[0][main] === tempBranch[test]){
+                goodBranch = false;
+              }
+            }
+          }
+        }
+
+        //If still good then complete generation
+        if(goodBranch){
+          console.log("Yes");
+        }else {
+          console.log("No");
+        }
+
       }
     }
     if(count>0){
