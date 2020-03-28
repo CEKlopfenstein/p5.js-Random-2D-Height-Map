@@ -68,6 +68,26 @@ function River(startX, startY){
         //If still good then complete generation
         if(goodBranch){
           console.log("\t\tYes");
+          //clear tempBranch
+          tempBranch = [this.riverPath[0][c]];
+          //Start creation loop
+          for(var c1 = 0; tempBranch[c1].z > 127; c1++){
+            //Find lowest that is not
+            var low = 0;
+            for(var n = 0; n < tempBranch[c1].neighbors.length; n++){
+              if(tempBranch[c1].neighbors[n] !== this.riverPath[0][c+1] && tempBranch[c1].neighbors[n].z <= tempBranch[c1].z && tempBranch[c1].neighbors[n].z < tempBranch[c1].neighbors[low].z){
+                low = n;
+              }
+            }
+
+            //Make sure the next point is lower or equal. if not fail.
+            if(tempBranch[c1].neighbors[low].z <= tempBranch[c1].z && tempBranch[c1].neighbors[low] !== this.riverPath[0][c+1]){
+              tempBranch.push(tempBranch[c1].neighbors[low]);
+            }else{
+              break;
+            }
+          }
+          //Add tempBranch to river
           for (var i = 0; i < tempBranch.length; i++) {
             if(i==0){
               this.riverPath.push([tempBranch[i]]);
@@ -75,6 +95,7 @@ function River(startX, startY){
               this.riverPath[this.riverPath.length-1].push(tempBranch[i]);
             }
           }
+
         }else {
           console.log("\t\tNo");
         }

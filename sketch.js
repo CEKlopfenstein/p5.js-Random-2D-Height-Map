@@ -3,9 +3,9 @@ var canvasSize = [640,480];
 var mapSize = [100,100];
 var pointCount = 20;
 var fallRate = 10;
-var riverStarts = 50;
+var riverStarts = 10;
 var smoothOut = 25;
-var riverSplit = 1;
+var riverSplit = 3;
 var logFile = "Output.txt";
 
 //Global variables
