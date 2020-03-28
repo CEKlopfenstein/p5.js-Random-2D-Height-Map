@@ -20,10 +20,22 @@ function River(startX, startY){
     }
   }
 
+  this.branchOff = function(){
+    console.log("River Start\n\tRiver length: "+this.riverPath[0].length);
+    var count = 0;
+    for(var c = 0; c < this.riverPath[0].length - 1; c++){
+      console.log("\t"+abs(this.riverPath[0][c].z - this.riverPath[0][c+1].z));
+      if(abs(this.riverPath[0][c].z - this.riverPath[0][c+1].z) <= 0){
+        count++;
+      }
+    }
+    console.log("\tBreak Count: "+count+"\nRiver Ends");
+  }
+
   this.show = function(){
     stroke(color("blue"));
     fill(color("blue"));
-    circle(this.riverPath[0][0].xTrue+this.riverPath[0][0].width/2,this.riverPath[0][0].yTrue+this.riverPath[0][0].height/2,(this.riverPath[0][0].height+this.riverPath[0][0].width)/3);
+    circle(this.riverPath[0][0].xTrue+this.riverPath[0][0].width/2,this.riverPath[0][0].yTrue+this.riverPath[0][0].height/2,(this.riverPath[0][0].height+this.riverPath[0][0].width)/4);
     strokeWeight(1.5);
     noFill();
     for(var t = 0; t < this.riverPath.length; t++){

@@ -94,6 +94,7 @@ function riverGen() {
     if(mapArray[pickX][pickY].z>127){
       riversArray.push(new River(pickX,pickY));
       riversArray[c].generateMainFlow();
+      riversArray[c].branchOff();
       c++;
     }
   }
