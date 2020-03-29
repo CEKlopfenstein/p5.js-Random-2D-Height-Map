@@ -39,6 +39,8 @@ function saveToFile(theMap) {
     }
   }
 
+  textOut += "\n"+riverSave();
+
   let out = createWriter("map.txt");
   out.write(textOut);
   out.close();
@@ -77,6 +79,9 @@ function loadFromFile(textInput) {
     }
   }
 
+  //Load rivers
+  loadRiver(textInput[3])
+
   //Force draw
   genComplete = true;
 
@@ -103,12 +108,10 @@ function riverSave() {
       saveString += "|";
     }
   }
-  console.log(saveString);
-  loadRiver(saveString);
+  return saveString;
 }
 
 function loadRiver(saveString) {
-  saveString = "43,22:42,22:41,22:40,22:39,22:38,22:37,22:36,22|47,98:46,98:45,98:44,98:43,98:42,98|89,43:90,43:91,43:92,43:93,43:94,43:95,43:96,43:97,43:98,43:99,43|6,45:5,45:5,46|24,28:24,27:24,26:24,25|90,79:90,80:90,81:90,82|70,20:70,19:70,18:70,17|30,8:30,9:30,10:30,11|31,32:32,32:33,32:34,32:35,32|84,21:83,21:82,21:81,21:80,21:79,21:78,21:77,21:76,21:75,21:74,21:73,21:73,20:72,20:72,19:71,19:71,18:70,18:70,17";
   var rivs1 = saveString.split("|");
   var rivs2 = [];
   var rivs3 = [];
@@ -137,8 +140,6 @@ function loadRiver(saveString) {
       }
     }
   }
-  console.log(rivs1,rivs2,rivs3);
-  console.log("\n\n",riversArray);
 }
 
 //Find the highestPoint on the map

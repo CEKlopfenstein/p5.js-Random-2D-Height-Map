@@ -48,9 +48,11 @@ function setup() {
   //setMap
   mapSet();
 
+  //Generate Rivers
+  riverGen();
+
   //This is to force a load
   mapArray = loadFromFile(inputFile);
-  riverGen();
 }
 
 function draw() {
@@ -64,7 +66,6 @@ function draw() {
       //trueLogger(finalData);
       //saveToFile(mapArray);
       dataSent = true;
-      riverSave();
     }
     graphic(offSets[0],offSets[1]);
     riverShow();
