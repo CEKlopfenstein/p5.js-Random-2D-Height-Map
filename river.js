@@ -113,9 +113,13 @@ function River(startX, startY){
     stroke(color("blue"));
     fill(color("blue"));
     circle(this.riverPath[0][0].xTrue+this.riverPath[0][0].width/2,this.riverPath[0][0].yTrue+this.riverPath[0][0].height/2,(this.riverPath[0][0].height+this.riverPath[0][0].width)/4);
-    strokeWeight(1.5);
     noFill();
     for(var t = 0; t < this.riverPath.length; t++){
+      if(t == 0){
+        strokeWeight(1.5);
+      }else{
+        strokeWeight(1);
+      }
       if(this.riverPath[t].length>1){
         beginShape();
         for(var c = 0; c < this.riverPath[t].length; c++){
