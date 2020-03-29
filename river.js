@@ -1,8 +1,10 @@
 function River(startX, startY){
+  //Data
   this.x = startX;
   this.y = startY;
   this.riverPath = [[mapArray[this.x][this.y]]];
 
+  //Generate the main part of the river
   this.generateMainFlow = function() {
     var c1 = this.riverPath[0].length-1;
     while(c1 < this.riverPath[0].length && this.riverPath[0][c1].z > 127){
@@ -20,11 +22,11 @@ function River(startX, startY){
     }
   }
 
+  //Generate the branches off the main part of the river Same way just with systems to make sure they don't just keep jumping off only to come back
   this.branchOff = function(){
     var count = 0;
     var tempBranch = [];
     var goodBranch = false;
-    console.log("New");
 
     for(var c = 0; c < this.riverPath[0].length - 1; c++){
       if(abs(this.riverPath[0][c].z - this.riverPath[0][c+1].z) <= riverSplit){
@@ -99,16 +101,13 @@ function River(startX, startY){
           }
 
         }else {
-          console.log("\t\tNo");
         }
 
       }
     }
-    if(count>0){
-      console.log("Length: "+this.riverPath[0].length+" Break Count: "+count);
-    }
   }
 
+  //Show the river
   this.show = function(){
     //Start of river
     stroke(color("blue"));
@@ -156,7 +155,7 @@ function River(startX, startY){
         endShape();
       }
 
-      //End of trails
+      //End of trails if it meets the ocean.
       if(this.riverPath[t][this.riverPath[t].length-1].z <= 127 && dist(this.riverPath[t][this.riverPath[t].length-1].x,this.riverPath[t][this.riverPath[t].length-1].y,this.riverPath[t][this.riverPath[t].length-2].x,this.riverPath[t][this.riverPath[t].length-2].y)<=2){
         stroke(color("#287ee0"));
         line(this.riverPath[t][this.riverPath[t].length-1].xTrue+this.riverPath[0][0].width/2,this.riverPath[t][this.riverPath[t].length-1].yTrue+this.riverPath[0][0].height/2,this.riverPath[t][this.riverPath[t].length-2].xTrue+this.riverPath[0][0].width/2,this.riverPath[t][this.riverPath[t].length-2].yTrue+this.riverPath[0][0].height/2);
