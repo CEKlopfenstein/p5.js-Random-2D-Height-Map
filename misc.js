@@ -86,14 +86,59 @@ function loadFromFile(textInput) {
 }
 
 function riverSave() {
-  var saveString = ""
+  var saveString = "";
   for(var riv = 0; riv < riversArray.length; riv++){
     for(var bran = 0; bran < riversArray[riv].riverPath.length; bran++){
       for(var c = 0; c < riversArray[riv].riverPath[bran].length; c++){
-        console.log(riversArray[riv].riverPath[bran][c]);
+        saveString += riversArray[riv].riverPath[bran][c].x+","+riversArray[riv].riverPath[bran][c].y;
+        if(c != riversArray[riv].riverPath[bran].length - 1){
+          saveString += ":";
+        }
+      }
+      if(bran != riversArray[riv].riverPath.length - 1){
+        saveString += ";";
+      }
+    }
+    if(riv != riversArray.length - 1){
+      saveString += "|";
+    }
+  }
+  console.log(saveString);
+  loadRiver(saveString);
+}
+
+function loadRiver(saveString) {
+  saveString = "43,22:42,22:41,22:40,22:39,22:38,22:37,22:36,22|47,98:46,98:45,98:44,98:43,98:42,98|89,43:90,43:91,43:92,43:93,43:94,43:95,43:96,43:97,43:98,43:99,43|6,45:5,45:5,46|24,28:24,27:24,26:24,25|90,79:90,80:90,81:90,82|70,20:70,19:70,18:70,17|30,8:30,9:30,10:30,11|31,32:32,32:33,32:34,32:35,32|84,21:83,21:82,21:81,21:80,21:79,21:78,21:77,21:76,21:75,21:74,21:73,21:73,20:72,20:72,19:71,19:71,18:70,18:70,17";
+  var rivs1 = saveString.split("|");
+  var rivs2 = [];
+  var rivs3 = [];
+  for(var riv = 0; riv < rivs1.length; riv++){
+    rivs2.push(rivs1[riv].split(";"));
+  }
+  for(var riv = 0; riv < rivs1.length; riv++){
+    for(var bran = 0; bran < rivs2[riv].length; bran++){
+      if(bran == 0){
+        rivs3.push([rivs2[riv][bran].split(":")]);
+      }else{
+        rivs3[riv].push(rivs2[riv][bran].split(":"));
       }
     }
   }
+  console.log(rivs3[0][0][0].split(","));
+
+  riversArray = [];
+  for(var riv = 0; riv < rivs1.length; riv++){
+    riversArray.push(new River(parseInt(rivs3[riv][0][0].split(",")[0]),parseInt(rivs3[riv][0][0].split(",")[1])));
+    riversArray[riv].riverPath = [];
+    for(var bran = 0; bran < rivs2[riv].length; bran++){
+      riversArray[riv].riverPath.push([]);
+      for(var c = 0; c < rivs3[riv][bran].length; c++){
+        riversArray[riv].riverPath[bran].push(mapArray[parseInt(rivs3[riv][bran][c].split(",")[0])][parseInt(rivs3[riv][bran][c].split(",")[1])]);
+      }
+    }
+  }
+  console.log(rivs1,rivs2,rivs3);
+  console.log("\n\n",riversArray);
 }
 
 //Find the highestPoint on the map
