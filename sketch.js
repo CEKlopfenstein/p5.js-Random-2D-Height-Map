@@ -64,6 +64,7 @@ function draw() {
       //trueLogger(finalData);
       //saveToFile(mapArray);
       dataSent = true;
+      riverSave();
     }
     graphic(offSets[0],offSets[1]);
     riverShow();

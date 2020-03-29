@@ -85,6 +85,17 @@ function loadFromFile(textInput) {
 
 }
 
+function riverSave() {
+  var saveString = ""
+  for(var riv = 0; riv < riversArray.length; riv++){
+    for(var bran = 0; bran < riversArray[riv].riverPath.length; bran++){
+      for(var c = 0; c < riversArray[riv].riverPath[bran].length; c++){
+        console.log(riversArray[riv].riverPath[bran][c]);
+      }
+    }
+  }
+}
+
 //Find the highestPoint on the map
 function highPointFind(theMap) {
   var temp = [];

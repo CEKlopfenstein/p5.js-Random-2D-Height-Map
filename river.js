@@ -157,7 +157,7 @@ function River(startX, startY){
       }
 
       //End of trails
-      if(this.riverPath[t][this.riverPath[t].length-1].z <= 127){
+      if(this.riverPath[t][this.riverPath[t].length-1].z <= 127 && dist(this.riverPath[t][this.riverPath[t].length-1].x,this.riverPath[t][this.riverPath[t].length-1].y,this.riverPath[t][this.riverPath[t].length-2].x,this.riverPath[t][this.riverPath[t].length-2].y)<=2){
         stroke(color("#287ee0"));
         line(this.riverPath[t][this.riverPath[t].length-1].xTrue+this.riverPath[0][0].width/2,this.riverPath[t][this.riverPath[t].length-1].yTrue+this.riverPath[0][0].height/2,this.riverPath[t][this.riverPath[t].length-2].xTrue+this.riverPath[0][0].width/2,this.riverPath[t][this.riverPath[t].length-2].yTrue+this.riverPath[0][0].height/2);
         stroke(color("blue"));
