@@ -39,6 +39,8 @@ function saveToFile(theMap) {
     }
   }
 
+  textOut += "\n"+riverSave();
+
   let out = createWriter("map.txt");
   out.write(textOut);
   out.close();
@@ -77,12 +79,90 @@ function loadFromFile(textInput) {
     }
   }
 
+  //Load rivers
+  loadRiver(textInput[3])
+
   //Force draw
   genComplete = true;
 
   //Return the loaded map
   return holder;
 
+}
+
+//Converts all the needed data for rivers into a single line of text so that it can be saved in a text file.
+function riverSave() {
+  //Start the save string.
+  var saveString = "";
+
+  //Loop through rivers
+  for(var riv = 0; riv < riversArray.length; riv++){
+    //Loop through the branches in the rivers.
+    for(var bran = 0; bran < riversArray[riv].riverPath.length; bran++){
+      //Loop throught all the points in the branch of a river
+      for(var c = 0; c < riversArray[riv].riverPath[bran].length; c++){
+        //Add the cord to the string.
+        saveString += riversArray[riv].riverPath[bran][c].x+","+riversArray[riv].riverPath[bran][c].y;
+        //Seperate x,y cord sets with :
+        if(c != riversArray[riv].riverPath[bran].length - 1){
+          saveString += ":";
+        }
+      }
+      //Seperate branches with ;
+      if(bran != riversArray[riv].riverPath.length - 1){
+        saveString += ";";
+      }
+    }
+    //Seperate rivers with |
+    if(riv != riversArray.length - 1){
+      saveString += "|";
+    }
+  }
+  return saveString;
+}
+
+//Convert the string found in the text files to the needed data to build the rivers and then build them.
+function loadRiver(saveString) {
+  //Split up the string
+  //Split rivers
+  var rivs1 = saveString.split("|");
+  var rivs2 = [];
+  var rivs3 = [];
+  //Split branches of rivers
+  for(var riv = 0; riv < rivs1.length; riv++){
+    rivs2.push(rivs1[riv].split(";"));
+  }
+  //Split the cord sets of the branches
+  for(var riv = 0; riv < rivs1.length; riv++){
+    for(var bran = 0; bran < rivs2[riv].length; bran++){
+      if(bran == 0){
+        rivs3.push([rivs2[riv][bran].split(":")]);
+      }else{
+        rivs3[riv].push(rivs2[riv][bran].split(":"));
+      }
+    }
+  }
+
+  //Clear the riversArray
+  riversArray = [];
+
+  //Add the data
+  for(var riv = 0; riv < rivs1.length; riv++){
+    //Add the start of the river
+    riversArray.push(new River(parseInt(rivs3[riv][0][0].split(",")[0]),parseInt(rivs3[riv][0][0].split(",")[1])));
+    //Clear its internal data
+    riversArray[riv].riverPath = [];
+    //Fill internal data
+    for(var bran = 0; bran < rivs2[riv].length; bran++){
+      //Start branch.
+      riversArray[riv].riverPath.push([]);
+      for(var c = 0; c < rivs3[riv][bran].length; c++){
+        //Add data to branch.
+        riversArray[riv].riverPath[bran].push(mapArray[parseInt(rivs3[riv][bran][c].split(",")[0])][parseInt(rivs3[riv][bran][c].split(",")[1])]);
+      }
+    }
+  }
+  //Done
 }
 
 //Find the highestPoint on the map

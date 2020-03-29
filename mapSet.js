@@ -83,3 +83,19 @@ function smoothMap() {
     }
   }
 }
+
+//River Generation
+function riverGen() {
+  //Pick Starting points of rivers and add them to array
+  var c = 0;
+  while(c < riverStarts){
+    var pickX = floor(random(mapSize[0]));
+    var pickY = floor(random(mapSize[1]));
+    if(mapArray[pickX][pickY].z>127){
+      riversArray.push(new River(pickX,pickY));
+      riversArray[c].generateMainFlow();
+      riversArray[c].branchOff();
+      c++;
+    }
+  }
+}

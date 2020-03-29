@@ -3,11 +3,15 @@ var canvasSize = [640,480];
 var mapSize = [100,100];
 var pointCount = 20;
 var fallRate = 10;
+var riverStarts = 10;
 var smoothOut = 25;
+var riverSplit = 1;
+var riverTestLength = 3;
 var logFile = "Output.txt";
 
 //Global variables
 var mapArray = [];
+var riversArray = [];
 var cellDem = [canvasSize[0]/mapSize[0],canvasSize[1]/mapSize[1]];
 var genComplete = false;
 var genStage1 = false;
@@ -44,8 +48,11 @@ function setup() {
   //setMap
   mapSet();
 
+  //Generate Rivers
+  riverGen();
+
   //This is to force a load
-  //mapArray = loadFromFile(inputFile);
+  mapArray = loadFromFile(inputFile);
 }
 
 function draw() {
@@ -56,11 +63,12 @@ function draw() {
       highestPoint = highPointFind(mapArray);
       lowestPoint = lowPointFind(mapArray);
       console.log(finalData+"\n"+highestPoint+"\n"+lowestPoint);
-      trueLogger(finalData);
+      //trueLogger(finalData);
       //saveToFile(mapArray);
       dataSent = true;
     }
     graphic(offSets[0],offSets[1]);
+    riverShow();
     noLoop();
   }else if(!firstDraw){
     colorTest();

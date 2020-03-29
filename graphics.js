@@ -18,7 +18,7 @@ function graphic(xOffset,yOffset) {
       if(xOffset > 0 && yOffset > 0){
         mapArray[x][y].offset(abs((x+xOffset)%mapArray.length),abs((y+yOffset)%mapArray[0].length));
       }
-      testColor2(mapArray[x][y]);
+      testColor3(mapArray[x][y]);
     }
   }
 }
@@ -155,5 +155,36 @@ function changeMapPoint(point) {
       point.show(255 - 255*(c/mostChange));
       break;
     }
+  }
+}
+function testColor3(point) {
+  if(point.z > 127){
+    var beach = false;
+    for(c in point.neighbors){
+      for(c1 in point.neighbors[c].neighbors){
+        if(point.neighbors[c].neighbors[c1].z <= 127){
+          point.show("#fad355");
+          beach = true;
+          break;
+        }
+      }
+    }
+    if(!beach){
+      point.show(color(20,150+(point.z-127)*(100/(highestPoint-127)),20));
+    }
+  }else if(point.z <= 85){
+    point.show("#0056b8");
+  }else if(point.z <= 127){
+    point.show("#287ee0");
+  }
+  /*
+  This looks good but I want to see what it looks like when I change the sea level
+  */
+}
+
+//Graphical function to show all rivers.
+function riverShow() {
+  for(var c = 0; c < riversArray.length; c++){
+    riversArray[c].show();
   }
 }
