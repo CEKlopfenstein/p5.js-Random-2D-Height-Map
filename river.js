@@ -110,16 +110,16 @@ function River(startX, startY){
   }
 
   this.show = function(){
+    //Start of river
     stroke(color("blue"));
     fill(color("blue"));
+    strokeWeight(1);
     circle(this.riverPath[0][0].xTrue+this.riverPath[0][0].width/2,this.riverPath[0][0].yTrue+this.riverPath[0][0].height/2,(this.riverPath[0][0].height+this.riverPath[0][0].width)/4);
+
+    //Body of river
+    strokeWeight(1.5);
     noFill();
     for(var t = 0; t < this.riverPath.length; t++){
-      if(t == 0){
-        strokeWeight(1.5);
-      }else{
-        strokeWeight(1);
-      }
       if(this.riverPath[t].length>1){
         beginShape();
         for(var c = 0; c < this.riverPath[t].length; c++){
@@ -154,6 +154,13 @@ function River(startX, startY){
           vertex(this.riverPath[t][c].xTrue+this.riverPath[t][c].width/2,this.riverPath[t][c].yTrue+this.riverPath[t][c].height/2);
         }
         endShape();
+      }
+
+      //End of trails
+      if(this.riverPath[t][this.riverPath[t].length-1].z <= 127){
+        stroke(color("#287ee0"));
+        line(this.riverPath[t][this.riverPath[t].length-1].xTrue+this.riverPath[0][0].width/2,this.riverPath[t][this.riverPath[t].length-1].yTrue+this.riverPath[0][0].height/2,this.riverPath[t][this.riverPath[t].length-2].xTrue+this.riverPath[0][0].width/2,this.riverPath[t][this.riverPath[t].length-2].yTrue+this.riverPath[0][0].height/2);
+        stroke(color("blue"));
       }
     }
   }

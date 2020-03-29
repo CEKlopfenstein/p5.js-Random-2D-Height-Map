@@ -5,7 +5,7 @@ var pointCount = 20;
 var fallRate = 10;
 var riverStarts = 10;
 var smoothOut = 25;
-var riverSplit = 3;
+var riverSplit = 1;
 var riverTestLength = 3;
 var logFile = "Output.txt";
 
