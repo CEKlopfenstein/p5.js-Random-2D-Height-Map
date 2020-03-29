@@ -36,7 +36,7 @@ function River(startX, startY){
         tempBranch = [this.riverPath[0][c]];
 
         //Start looping test
-        for(var c1 = 0; c1 < 3; c1++){
+        for(var c1 = 0; c1 < riverTestLength; c1++){
           //Find lowest that is not
           var low = 0;
           for(var n = 0; n < tempBranch[c1].neighbors.length; n++){
@@ -56,10 +56,12 @@ function River(startX, startY){
 
         //If first number of points are good test again
         if(goodBranch){
-          for(var main = 0; main < this.riverPath[0].length && goodBranch; main++){
-            for(var test = 1; test < tempBranch.length && goodBranch; test++){
-              if(this.riverPath[0][main] === tempBranch[test]){
-                goodBranch = false;
+          for(var sect = 0; sect < this.riverPath.length; sect++){
+            for(var main = 0; main < this.riverPath[sect].length && goodBranch; main++){
+              for(var test = 1; test < tempBranch.length && goodBranch; test++){
+                if(this.riverPath[sect][main] === tempBranch[test]){
+                  goodBranch = false;
+                }
               }
             }
           }
