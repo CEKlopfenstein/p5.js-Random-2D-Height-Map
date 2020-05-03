@@ -99,3 +99,30 @@ function riverGen() {
     }
   }
 }
+
+function biomeGeneration() {
+  for(var x = 0; x < mapArray.length; x++){
+    for(var y = 0; y < mapArray[0].length; y++){
+      //Biome Selection
+      if(mapArray[x][y].z > 127){
+        var beach = false;
+        for(c in mapArray[x][y].neighbors){
+          for(c1 in mapArray[x][y].neighbors[c].neighbors){
+            if(mapArray[x][y].neighbors[c].neighbors[c1].z <= 127){
+              mapArray[x][y].biome = 2;
+              beach = true;
+              break;
+            }
+          }
+        }
+        if(!beach){
+          mapArray[x][y].biome = 3;
+        }
+      }else if(point.z <= 85){
+        mapArray[x][y].biome = 0;
+      }else if(point.z <= 127){
+        mapArray[x][y].biome = 1;
+      }
+    }
+  }
+}

@@ -32,7 +32,6 @@ function River(startX, startY){
       if(abs(this.riverPath[0][c].z - this.riverPath[0][c+1].z) <= riverSplit){
         //Set flag
         goodBranch = true;
-        console.log("\tBranch");
 
         //Set test start
         tempBranch = [this.riverPath[0][c]];
@@ -71,7 +70,6 @@ function River(startX, startY){
 
         //If still good then complete generation
         if(goodBranch){
-          console.log("\t\tYes");
           //clear tempBranch
           tempBranch = [this.riverPath[0][c]];
           //Start creation loop

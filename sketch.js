@@ -103,12 +103,15 @@ function draw() {
     if(prog == finalprog){
       genStage1 = true;
     }
-  }else if(!genStage2){//The hight map is generated now smooth it out. As well as add rivers
+  }else if(!genStage2){//The hight map is generated now smooth it out. As well as add rivers. Now to even add biomes.
     //Smooth out map
     smoothMap();
 
     //Generate Rivers
     riverGen();
+
+    //Generate biomes
+    biomeGeneration();
 
     //Set flags for stage completion
     genStage2 = true;
