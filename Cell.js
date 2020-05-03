@@ -9,6 +9,7 @@ function Cell(xCord, yCord, xDem, yDem){
   this.yTrue = yCord*yDem;
   this.neighbors = [];
   this.zChange = 0;
+  this.biome = -1;
 
   //Initialization
 
@@ -79,6 +80,10 @@ function Cell(xCord, yCord, xDem, yDem){
       sum += abs(this.neighbors[x].z - this.z);
     }
     this.zChange = sum / 4;
+  }
+
+  this.biomeGen = function(){
+    console.log("PlaceHold");
   }
 
 }
