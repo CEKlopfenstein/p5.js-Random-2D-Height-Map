@@ -118,9 +118,9 @@ function biomeGeneration() {
         if(!beach){
           mapArray[x][y].biome = 3;
         }
-      }else if(point.z <= 85){
+      }else if(mapArray[x][y].z <= 85){
         mapArray[x][y].biome = 0;
-      }else if(point.z <= 127){
+      }else if(mapArray[x][y].z <= 127){
         mapArray[x][y].biome = 1;
       }
     }
