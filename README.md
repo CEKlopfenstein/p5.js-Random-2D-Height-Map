@@ -60,6 +60,12 @@ off the bat and then have to touble shoot it in 3D.
   Related Issues:
   1. [River Generation](https://github.com/CEKlopfenstein/p5.js-Random-2D-Height-Map/issues/10)
 
+ ##### Point-Fall-Rivers
+ This branch is related to [**Point-Fall**](#point-fall) and is a testing grounds in the development of the Biome generation for [**Point-Fall**](#point-fall). The idea and plans for it are described in the first relating issue.
+
+  Related Issues:
+  1. [Biome Development](https://github.com/CEKlopfenstein/p5.js-Random-2D-Height-Map/issues/12)
+
 
 ## Plans
 If I'm honest I have no real plans to do anything with this. It is currently just something
