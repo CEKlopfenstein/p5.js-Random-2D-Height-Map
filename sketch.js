@@ -48,15 +48,12 @@ function setup() {
   //setMap
   mapSet();
 
-  //Generate Rivers
-  riverGen();
-
   //This is to force a load
-  mapArray = loadFromFile(inputFile);
+  //mapArray = loadFromFile(inputFile);
 }
 
 function draw() {
-  if(genComplete){
+  if(genComplete){//Generation of the map is complete so it is now displayed.
     if(!dataSent){
       totalTime = millis() - startTime;
       var finalData = logIt();
@@ -70,11 +67,11 @@ function draw() {
     graphic(offSets[0],offSets[1]);
     riverShow();
     noLoop();
-  }else if(!firstDraw){
+  }else if(!firstDraw){//Draw the first visable frame.
     colorTest();
     initDraw();
     firstDraw = true;
-  }else if(!genStage1){
+  }else if(!genStage1){//Update the progress bars
     //Empty Bar
     noFill();
     stroke(0);
@@ -106,8 +103,14 @@ function draw() {
     if(prog == finalprog){
       genStage1 = true;
     }
-  }else if(!genStage2){
+  }else if(!genStage2){//The hight map is generated now smooth it out. As well as add rivers
+    //Smooth out map
     smoothMap();
+
+    //Generate Rivers
+    riverGen();
+
+    //Set flags for stage completion
     genStage2 = true;
     genComplete = true;
   }
