@@ -83,7 +83,25 @@ function Cell(xCord, yCord, xDem, yDem){
   }
 
   this.biomeGen = function(){
-    console.log("PlaceHold");
+    if(this.z > 127){
+      var beach = false;
+      for(c in this.neighbors){
+        for(c1 in this.neighbors[c].neighbors){
+          if(this.neighbors[c].neighbors[c1].z <= 127){
+            this.biome = 2;
+            beach = true;
+            break;
+          }
+        }
+      }
+      if(!beach){
+        this.biome = 3;
+      }
+    }else if(mapArray[x][y].z <= 85){
+      this.biome = 0;
+    }else if(mapArray[x][y].z <= 127){
+      this.biome = 1;
+    }
   }
 
 }
