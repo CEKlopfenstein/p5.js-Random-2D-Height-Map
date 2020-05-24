@@ -97,9 +97,9 @@ function Cell(xCord, yCord, xDem, yDem){
       if(!beach){
         this.biome = 3;
       }
-    }else if(mapArray[x][y].z <= 85){
+    }else if(mapArray[this.x][this.y].z <= 85){
       this.biome = 0;
-    }else if(mapArray[x][y].z <= 127){
+    }else if(mapArray[this.x][this.y].z <= 127){
       this.biome = 1;
     }
   }
