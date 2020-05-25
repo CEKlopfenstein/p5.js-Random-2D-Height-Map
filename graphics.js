@@ -18,7 +18,8 @@ function graphic(xOffset,yOffset) {
       if(xOffset > 0 && yOffset > 0){
         mapArray[x][y].offset(abs((x+xOffset)%mapArray.length),abs((y+yOffset)%mapArray[0].length));
       }
-      testColor3(mapArray[x][y]);
+      //testColor3(mapArray[x][y]);
+      testBiome(mapArray[x][y]);
     }
   }
 }
@@ -187,4 +188,29 @@ function riverShow() {
   for(var c = 0; c < riversArray.length; c++){
     riversArray[c].show();
   }
+}
+
+//Testing for biomes
+function testBiome(point) {
+  if(point.z > 127){
+    aboveSea = highPointFind(mapArray) - 127;
+    if( point.z < 1 * aboveSea/5 + 127){
+      point.show(0);
+    }else if( point.z < 2 * aboveSea/5 + 127){
+      point.show(51);
+    }else if( point.z < 3 * aboveSea/5 + 127){
+      point.show(102);
+    }else if( point.z < 4 * aboveSea/5 + 127){
+      point.show(156);
+    }else if( point.z < 5 * aboveSea/5 + 127){
+      point.show(208);
+    }
+  }else if(point.z <= 85){
+    point.show("#0056b8");
+  }else if(point.z <= 127){
+    point.show("#287ee0");
+  }
+  /*
+  This looks good but I want to see what it looks like when I change the sea level
+  */
 }
