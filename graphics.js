@@ -19,8 +19,8 @@ function graphic(xOffset,yOffset) {
         mapArray[x][y].offset(abs((x+xOffset)%mapArray.length),abs((y+yOffset)%mapArray[0].length));
       }
       //testColor3(mapArray[x][y]);
-      //testBiome(mapArray[x][y]);
-      testTemp(mapArray[x][y]);
+      testBiome(mapArray[x][y]);
+      //testTemp(mapArray[x][y]);
     }
   }
   stroke(0);
@@ -201,7 +201,8 @@ function testBiome(point) {
     //Determing factors for a beach.
     high = highPointFind(mapArray)
     var percentLevel = (point.z-127)/(highPointFind(mapArray) - 127);
-    if(percentLevel < 0.1){
+    if(beachCheck(point, percentLevel)){
+      point.biome = 3;
       point.show("#fad355");
     }else if(percentLevel < 0.2){
       point.show("#00691c");
