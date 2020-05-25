@@ -193,12 +193,20 @@ function riverShow() {
 //Testing for biomes
 function testBiome(point) {
   if(point.z > 127){
-    aboveSea = highPointFind(mapArray) - 127;
-    percentAbove = (point.z-127)/aboveSea;
-    for(var c = 1; c <= 10; c++){
-      if(percentAbove < c/10){
-        point.show((c/10) * 255);
-        break;
+    if((point.z-127)/(highPointFind(mapArray) - 127) < 0.1){
+      point.show("#fad355");
+    }else{
+      aboveSea = highPointFind(mapArray) - 127;
+      percentAbove = (point.z-127)/aboveSea;
+      for(var c = 1; c <= 9; c++){
+        if(point.z == aboveSea+127){
+          point.show("red");
+          break;
+        }
+        if(percentAbove < (c+1)/10){
+          point.show((c/9) * 255);
+          break;
+        }
       }
     }
   }else if(point.z <= 85){

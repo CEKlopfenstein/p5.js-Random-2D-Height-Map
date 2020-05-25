@@ -84,17 +84,9 @@ function Cell(xCord, yCord, xDem, yDem){
 
   this.biomeGen = function(){
     if(this.z > 127){
-      var beach = false;
-      for(c in this.neighbors){
-        for(c1 in this.neighbors[c].neighbors){
-          if(this.neighbors[c].neighbors[c1].z <= 127){
-            this.biome = 2;
-            beach = true;
-            break;
-          }
-        }
-      }
-      if(!beach){
+      if((point.z-127)/(highPointFind(mapArray) - 127)< 0.1){
+        this.biome = 2
+      }else{
         this.biome = 3;
       }
     }else if(mapArray[this.x][this.y].z <= 85){
