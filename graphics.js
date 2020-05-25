@@ -22,6 +22,10 @@ function graphic(xOffset,yOffset) {
       testBiome(mapArray[x][y]);
     }
   }
+  stroke(0);
+  line(0,canvasSize[1]*0.5,canvasSize[0],canvasSize[1]*0.5);
+  line(0,canvasSize[1]*0.25,canvasSize[0],canvasSize[1]*0.25);
+  line(0,canvasSize[1]*0.75,canvasSize[0],canvasSize[1]*0.75);
 }
 
 function testGraphic(xOffset,yOffset) {
@@ -193,18 +197,27 @@ function riverShow() {
 //Testing for biomes
 function testBiome(point) {
   if(point.z > 127){
-    if((point.z-127)/(highPointFind(mapArray) - 127) < 0.1){
+    //Determing factors for a beach.
+    high = highPointFind(mapArray)
+    var percentLevel = (point.z-127)/(highPointFind(mapArray) - 127);
+    if(percentLevel < 0.1){
       point.show("#fad355");
+    }else if(percentLevel < 0.2){
+      point.show("#00691c");
+    }else if(percentLevel < 0.5){
+      point.show("#45bf65");
+    }else if(percentLevel < 0.9){
+      point.show("#71b081");
+    }else if(percentLevel <= 1){
+      point.show("#696b6a");
     }else{
-      aboveSea = highPointFind(mapArray) - 127;
-      percentAbove = (point.z-127)/aboveSea;
-      for(var c = 1; c <= 9; c++){
-        if(point.z == aboveSea+127){
+      for(var c = 1; c <= 10; c++){
+        if(point.z == high){
           point.show("red");
           break;
         }
-        if(percentAbove < (c+1)/10){
-          point.show((c/9) * 255);
+        if(percentLevel < c/10){
+          point.show((c/10) * 255);
           break;
         }
       }
@@ -214,7 +227,4 @@ function testBiome(point) {
   }else if(point.z <= 127){
     point.show("#287ee0");
   }
-  /*
-  This looks good but I want to see what it looks like when I change the sea level
-  */
 }
