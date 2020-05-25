@@ -65,7 +65,7 @@ function draw() {
       dataSent = true;
     }
     graphic(offSets[0],offSets[1]);
-    riverShow();
+    //riverShow();
     noLoop();
   }else if(!firstDraw){//Draw the first visable frame.
     colorTest();

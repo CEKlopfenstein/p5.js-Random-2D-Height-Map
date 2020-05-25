@@ -82,6 +82,17 @@ function Cell(xCord, yCord, xDem, yDem){
     this.zChange = sum / 4;
   }
 
+  this.getTemp = function(){
+    distToEqu = Math.min(abs(this.y - 0.25*mapSize[1]),abs(this.y - 0.75*mapSize[1]))/(0.25*mapSize[1]);
+    if(distToEqu < 1/3){
+      return 1;
+    }else if(distToEqu < 2/3){
+      return 2;
+    }else if(distToEqu <= 1){
+      return 3;
+    }
+  }
+
   this.biomeGen = function(){
     if(this.z > 127){
       if((point.z-127)/(highPointFind(mapArray) - 127)< 0.1){

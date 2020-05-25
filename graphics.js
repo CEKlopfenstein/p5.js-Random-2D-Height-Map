@@ -19,7 +19,8 @@ function graphic(xOffset,yOffset) {
         mapArray[x][y].offset(abs((x+xOffset)%mapArray.length),abs((y+yOffset)%mapArray[0].length));
       }
       //testColor3(mapArray[x][y]);
-      testBiome(mapArray[x][y]);
+      //testBiome(mapArray[x][y]);
+      testTemp(mapArray[x][y]);
     }
   }
   stroke(0);
@@ -226,5 +227,11 @@ function testBiome(point) {
     point.show("#0056b8");
   }else if(point.z <= 127){
     point.show("#287ee0");
+  }
+}
+
+function testTemp(point) {
+  if(point.z > 127){
+    point.show((point.getTemp()-1)/3*255);
   }
 }
