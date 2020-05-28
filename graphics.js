@@ -202,7 +202,6 @@ function testBiome(point) {
     high = highPointFind(mapArray)
     var percentLevel = (point.z-127)/(highPointFind(mapArray) - 127);
     if(beachCheck(point, percentLevel)){
-      point.biome = 3;
       point.show("#fad355");
     }else if(percentLevel < 0.2){
       point.show("#00691c");
@@ -225,8 +224,10 @@ function testBiome(point) {
       }
     }
   }else if(point.z <= 85){
+    point.biome = 0;
     point.show("#0056b8");
   }else if(point.z <= 127){
+    point.biome = 1;
     point.show("#287ee0");
   }
 }
