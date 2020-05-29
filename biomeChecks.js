@@ -35,3 +35,18 @@ function beachCheck(point, percentLevel) {
   //If all fails then it is not a beach.
   return false;
 }
+
+function swampCheck(point,percentLevel) {
+  if(percentLevel < 0.2){
+    point.biome = 3;
+    return true;
+  }else if (percentLevel < 0.5) {
+    for(var river = 0; river < riversArray.length; river++){
+      if(riversArray[river].checkTile(point.x,point.y)){
+        point.biome = 3;
+        return true;
+      }
+    }
+  }
+  return false;
+}

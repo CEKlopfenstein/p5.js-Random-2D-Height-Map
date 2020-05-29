@@ -161,4 +161,15 @@ function River(startX, startY){
       }
     }
   }
+
+  this.checkTile = function(x,y){
+    for(var section = 0; section < this.riverPath.length; section++){
+      for(var tile = 0; tile < this.riverPath[section].length; tile++){
+        if(this.riverPath[section][tile].x == x && this.riverPath[section][tile].y == y){
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }

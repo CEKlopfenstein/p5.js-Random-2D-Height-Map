@@ -203,13 +203,13 @@ function testBiome(point) {
     var percentLevel = (point.z-127)/(highPointFind(mapArray) - 127);
     if(beachCheck(point, percentLevel)){
       point.show("#fad355");
-    }else if(percentLevel < 0.2){
+    }else if(swampCheck(point,percentLevel)){
       point.show("#00691c");
-    }else if(percentLevel < 0.5){
+    }else if(percentLevel < 0.5 && point.biome == -1){
       point.show("#45bf65");
-    }else if(percentLevel < 0.9){
+    }else if(percentLevel < 0.9 && point.biome == -1){
       point.show("#71b081");
-    }else if(percentLevel <= 1){
+    }else if(percentLevel <= 1 && point.biome == -1){
       point.show("#696b6a");
     }else{
       for(var c = 1; c <= 10; c++){
