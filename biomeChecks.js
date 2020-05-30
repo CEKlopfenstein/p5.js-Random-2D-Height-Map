@@ -44,6 +44,17 @@ function swampCheck(point,percentLevel) {
     for(var river = 0; river < riversArray.length; river++){
       if(riversArray[river].checkTile(point.x,point.y)){
         point.biome = 3;
+        var spread = [point];
+        var spreadChance = 1-(percentLevel-0.2)/0.3;
+        for(var section = 0; section < spread.length; section++){
+          for(var c = 0; c < spread[section].neighbors.length; c++){
+            if(random() < spreadChance && (spread[section].neighbors[c].z-127)/(highPointFind(mapArray) - 127) < 0.5){
+              spread[section].neighbors[c].biome = 3;
+              spread.push(point.neighbors[c]);
+            }
+          }
+          spreadChance -= 0.2;
+        }
         return true;
       }
     }

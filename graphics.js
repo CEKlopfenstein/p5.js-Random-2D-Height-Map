@@ -205,6 +205,8 @@ function testBiome(point) {
       point.show("#fad355");
     }else if(swampCheck(point,percentLevel)){
       point.show("#00691c");
+    }else if(point.biome == 3){
+      point.show("#00691c");
     }else if(percentLevel < 0.5 && point.biome == -1){
       point.show("#45bf65");
     }else if(percentLevel < 0.9 && point.biome == -1){
