@@ -198,7 +198,6 @@ function riverShow() {
 //Testing for biomes
 function testBiome(point) {
   if(point.z > 127){
-    //Determing factors for a beach.
     high = highPointFind(mapArray)
     var percentLevel = (point.z-127)/(highPointFind(mapArray) - 127);
     if(beachCheck(point, percentLevel)){
@@ -209,10 +208,13 @@ function testBiome(point) {
       point.show("#00691c");
     }else if(percentLevel < 0.5 && point.biome == -1){
       point.show("#45bf65");
+      point.biome = -2;
     }else if(percentLevel < 0.9 && point.biome == -1){
       point.show("#71b081");
+      point.biome = -2;
     }else if(percentLevel <= 1 && point.biome == -1){
       point.show("#696b6a");
+      point.biome = -2;
     }else{
       for(var c = 1; c <= 10; c++){
         if(point.z == high){

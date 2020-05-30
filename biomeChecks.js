@@ -27,7 +27,7 @@ function beachCheck(point, percentLevel) {
         }
       }
     }
-    if(closestDist != 6){
+    if(closestDist < 6){
       point.biome = 2;
       return true;
     }
@@ -60,4 +60,20 @@ function swampCheck(point,percentLevel) {
     }
   }
   return false;
+}
+
+function lowFlatlandsCheck() {
+
+}
+
+function lowForestCheck() {
+
+}
+
+function highFlatlandsCheck() {
+
+}
+
+function highForestCheck() {
+
 }
