@@ -62,18 +62,24 @@ function swampCheck(point,percentLevel) {
   return false;
 }
 
-function lowFlatlandsCheck() {
+function lowFlatlandsCheck(point,percentLevel) {
+  if(percentLevel < 0.5){
+      return true;
+  }
+  return false;
+}
+
+function lowForestCheck(point,percentLevel) {
+  if(percentLevel < 0.5 && random() < 0.1){
+      return true;
+  }
+  return false;
+}
+
+function highFlatlandsCheck(point,percentLevel) {
 
 }
 
-function lowForestCheck() {
-
-}
-
-function highFlatlandsCheck() {
-
-}
-
-function highForestCheck() {
+function highForestCheck(point,percentLevel) {
 
 }

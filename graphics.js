@@ -206,7 +206,10 @@ function testBiome(point) {
       point.show("#00691c");
     }else if(point.biome == 3){
       point.show("#00691c");
-    }else if(percentLevel < 0.5 && point.biome == -1){
+    }else if (lowForestCheck(point,percentLevel) && point.biome == -1) {
+      point.show("#008218");
+      point.biome = -2;
+    }else if(lowFlatlandsCheck(point,percentLevel) && point.biome == -1){
       point.show("#45bf65");
       point.biome = -2;
     }else if(percentLevel < 0.9 && point.biome == -1){
