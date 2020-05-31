@@ -76,7 +76,7 @@ function lowForestCheck(point,percentLevel) {
     var spread = [point];
     for(var spin = 0; spin < spread.length; spin++){
       for(var side = 0; side < spread[spin].neighbors.length; side++){
-        if(dist(point.x,point.y,spread[spin].x,spread[spin].y) < dist(point.x,point.y,spread[spin].neighbors[side].x,spread[spin].neighbors[side].y) && (spread[spin].neighbors[side].z-127)/(highPointFind(mapArray) - 127) < 0.5 && spread[spin].neighbors[side].biome != 5 && random() < 0.6){
+        if(dist(point.x,point.y,spread[spin].x,spread[spin].y) < dist(point.x,point.y,spread[spin].neighbors[side].x,spread[spin].neighbors[side].y) && (spread[spin].neighbors[side].z-127)/(highPointFind(mapArray) - 127) < 0.5 && (spread[spin].neighbors[side].z-127)/(highPointFind(mapArray) - 127) >= 0.2 && spread[spin].neighbors[side].biome != 5 && random() < 0.6){
           spread.push(spread[spin].neighbors[side]);
           spread[spin].neighbors[side].biome = 5;
         }
