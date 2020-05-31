@@ -206,18 +206,14 @@ function testBiome(point) {
       point.show("#00691c");
     }else if(point.biome == 3){
       point.show("#00691c");
-    }else if (lowForestCheck(point,percentLevel) && point.biome == -1) {
-      point.show("#008218");
-      point.biome = -2;
-    }else if(lowFlatlandsCheck(point,percentLevel) && point.biome == -1){
+    }else if (lowForestCheck(point,percentLevel) && point.biome == -1 || point.biome == 5) {
+      point.show("#b59100");
+    }else if(lowFlatlandsCheck(point,percentLevel)){
       point.show("#45bf65");
-      point.biome = -2;
     }else if(percentLevel < 0.9 && point.biome == -1){
       point.show("#71b081");
-      point.biome = -2;
     }else if(percentLevel <= 1 && point.biome == -1){
       point.show("#696b6a");
-      point.biome = -2;
     }else{
       for(var c = 1; c <= 10; c++){
         if(point.z == high){
